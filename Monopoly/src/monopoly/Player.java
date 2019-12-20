@@ -15,14 +15,15 @@ public class Player {
  
     private String name;
     private int balance;
-    private boolean isInJail;
-    private int leaveJailFree;
     private int position;
+    private int leaveJailFree;
+    private boolean isInJail;
     private ArrayList <Properties> allProperties;
     
     
-   public Player(String name){
+   public Player(String name, int balance){
        this.name = name;
+       this.balance = balance;
    } 
   
    
@@ -33,11 +34,19 @@ public class Player {
        this.balance = balance - moneyAmount;
    }
    
+   public int getCurrentPosition(){
+       return this.position;
+   }
+   
+   public void setPosition(int position){
+       this.position = position;
+   }
+   
    public int rollDie(Die die){
        return die.getFace();
    }
    
-   public boolean isInJail(){
+   public void isInJail(boolean isInjail){
        
    }
    
