@@ -10,9 +10,10 @@ package monopoly;
  * @author patev6618
  */
 public class Die {
-  
-    
-    //generate a die roll randomlys
+  /**
+   * generate a random number between 1-6
+   * @return the generated number
+   */
     public int getFace(){
         int face = (int) ((Math.random() * 5)+ 1);
         return face;

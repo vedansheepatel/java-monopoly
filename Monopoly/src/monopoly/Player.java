@@ -16,22 +16,25 @@ public class Player {
     private String name;
     private int balance;
     private int position;
-    private int leaveJailFree;
-    private boolean isInJail;
-    private ArrayList <Properties> allProperties;
+//    private int leaveJailFree;
+//    private boolean isInJail;
+    private ArrayList <Property> allProperties;
     
-    
-   public Player(String name, int balance){
+   
+   public Player(String name, int balance, int position){
        this.name = name;
        this.balance = balance;
+       this.position = position;
    } 
-  
    
    public void addMoney(int moneyAmount){
        this.balance = moneyAmount + balance; 
    }
    public void takeMoney(int moneyAmount){
-       this.balance = balance - moneyAmount;
+       if (balance > moneyAmount){
+          this.balance = balance - moneyAmount; 
+       }
+           //add an else statement here  
    }
    
    public int getCurrentPosition(){
@@ -46,10 +49,20 @@ public class Player {
        return die.getFace();
    }
    
-   public void isInJail(boolean isInjail){
+   public void purchaseProperty(){
        
    }
    
+//   public void isInJail(boolean isInjail){
+//       
+//   }
+   //does this () need anything?
+//   public void useLeaveJailForFree(){
+//       if (leaveJailFree > 1){
+//           leaveJailFree--;
+//       }
+//      
+//   }
    
    
    //getter methods 

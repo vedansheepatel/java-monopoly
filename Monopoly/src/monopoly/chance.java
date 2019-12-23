@@ -7,8 +7,15 @@ package monopoly;
 
 /**
  *
- * @author patev6618
+ * @author dhshp
  */
-public class Properties {
+public class chance extends Location {
+    
+    private String name;
+    private int number;
+    
+    public chance (String name, int number){
+       super (name, number);
+    }
     
 }
