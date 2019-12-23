@@ -35,7 +35,6 @@ public class Board {
         locations[8][10]= new Property ("Tennessee Avenue", 19, 180, 14, false);
         locations[9][10]= new Property ("New York Avenue", 20, 200, 16, false);
         locations[10][10]= new Property ("", 15, 160, 12, false);
-         
     }
     
 //    public Location[] getLocations(){
