@@ -7,15 +7,14 @@ package monopoly;
 
 /**
  *
- * @author dhshp
+ * @author patev6618
  */
 public class GoSqaure extends Location{
     
-    private String name;
-    private int number;
     
-    public GoSqaure (String name, int number){
-        super (name, number);
+    
+    public GoSqaure (String name, int positionNumber){
+        super (name, positionNumber);
     }
     
     public String printToScreen(){

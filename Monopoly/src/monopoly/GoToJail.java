@@ -7,14 +7,11 @@ package monopoly;
 
 /**
  *
- * @author patev6618
+ * @author dhshp
  */
-public class chance extends Location {
-    
- 
-    
-    public chance (String name, int positionNumber){
-       super (name, positionNumber);
+public class GoToJail extends Location {
+    public GoToJail (String name, int positionNumber){
+        super (name, positionNumber);
     }
-    
+    //move the player to jail
 }

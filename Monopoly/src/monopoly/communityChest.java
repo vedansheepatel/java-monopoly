@@ -7,14 +7,13 @@ package monopoly;
 
 /**
  *
- * @author dhshp
+ * @author patev6618
  */
 public class communityChest extends Location {
     
-    private String name;
-    private int number;
+   
     
-    public communityChest(String name, int number){
-        super (name, number);
+    public communityChest(String name, int positionNumber){
+        super (name, positionNumber);
     }
 }

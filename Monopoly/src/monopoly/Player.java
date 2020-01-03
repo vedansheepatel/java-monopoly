@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * @author patev6618
  */
 public class Player {
- 
     private String name;
     private int balance;
     private int position;

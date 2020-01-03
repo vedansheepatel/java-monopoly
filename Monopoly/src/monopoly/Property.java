@@ -7,17 +7,16 @@ package monopoly;
 
 /**
  *
- * @author dhshp
+ * @author patev6618
  */
 public class Property extends Location {
-    private String name;
-    private int number;
+   
     private int price;
     private int rent;
     private boolean isOwned;
     
-    public Property (String name, int number, int price, int rent, boolean isOwned){
-        super (name, number);
+    public Property (String name, int positionNumber, int price, int rent, boolean isOwned){
+        super (name, positionNumber);
         this.price = price;
         this.rent = rent;
         isOwned = false;
@@ -25,6 +24,12 @@ public class Property extends Location {
     
     public int getPrice(){
         return price;
+    }
+    public int getRent(){
+        return rent;
+    }
+    public boolean isOwned(){
+        return isOwned;
     }
     
 }

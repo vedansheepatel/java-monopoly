@@ -7,14 +7,13 @@ package monopoly;
 
 /**
  *
- * @author dhshp
+ * @author patev6618
  */
 public class Jail extends Location{
-    private String name;
-    private int number;
+   
     
-    public Jail (String name, int number){
-        super (name, number);
+    public Jail (String name, int positionNumber){
+        super (name, positionNumber);
     }
     public String printToScreen(){
         return "You are at the Jail Sqaure";

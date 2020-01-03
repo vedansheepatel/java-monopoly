@@ -13,20 +13,20 @@ public class Location {
     //make a super class for all possible locations on the board 
     //all locations have a name and board number assosicated with them
     private String name;
-    private int number;
+    private int positionNumber;
     
     //
-    public Location (String name, int number){
+    public Location (String name, int positionNumber){
         this.name = name;
-        this.number = number;
+        this.positionNumber = positionNumber;
     }
     
     /**
      * Get the Locations board number 
      * @return the number 
      */
-    public int getNumber(){
-        return number;
+    public int getPositionNumber(){
+        return positionNumber;
     }
     /**
      * get the locations name

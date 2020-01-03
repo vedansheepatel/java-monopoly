@@ -9,12 +9,14 @@ package monopoly;
  *
  * @author patev6618
  */
-public class chance extends Location {
+public class FreeParking extends Location {
     
- 
     
-    public chance (String name, int positionNumber){
-       super (name, positionNumber);
+    public FreeParking (String name, int positionNumber){
+        super (name, positionNumber);
     }
     
+    public String PrintToScreen(){
+        return "You are using the Free Parking service";
+    }
 }

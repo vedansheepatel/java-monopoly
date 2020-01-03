@@ -7,15 +7,13 @@ package monopoly;
 
 /**
  *
- * @author dhshp
+ * @author patev618
  */
 public class IncomeTax extends Location {
     
-    private String name;
-    private int number;
     
-    public IncomeTax(String name, int number){
-        super(name, number);
+    public IncomeTax(String name, int positionNumber){
+        super(name, positionNumber);
     }
     public String printToScreen(){
     return "You landed on IncomeTax Square. Please pay $200";
