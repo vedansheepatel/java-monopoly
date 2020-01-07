@@ -10,6 +10,7 @@ package monopoly;
  * @author dhshp
  */
 public class GoToJail extends Location {
+    
     public GoToJail (String name, int positionNumber){
         super (name, positionNumber);
     }

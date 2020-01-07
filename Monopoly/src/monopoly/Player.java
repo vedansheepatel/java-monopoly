@@ -63,7 +63,6 @@ public class Player {
 //      
 //   }
    
-   
    //getter methods 
     public String getName(){
        return this.name;
