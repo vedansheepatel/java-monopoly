@@ -17,7 +17,7 @@ public class Die {
      * @return the generated number
      */
     public int getFace() {
-        int face = (int) ((Math.random() * 5) + 1);
+        int face = (int) ((Math.random() * 6) + 1);
         return face;
 
     }

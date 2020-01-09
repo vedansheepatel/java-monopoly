@@ -52,6 +52,9 @@ public class Player {
     public void purchaseProperty() {
 
     }
+    public void movePlayer (int position){
+        
+    }
 
 //   public void isInJail(boolean isInjail){
 //       
