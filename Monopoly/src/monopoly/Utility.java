@@ -9,25 +9,28 @@ package monopoly;
  *
  * @author patev6618
  */
-public class Utility extends Location{
-    
+public class Utility extends Location {
+
     private int price;
     private int mortgage;
     private boolean isOwned;
-    
-    public Utility (String name, int positionNumber, int price, int mortgage, boolean isOwned){
+
+    public Utility(String name, int positionNumber, int price, int mortgage, boolean isOwned) {
         super(name, positionNumber);
         this.price = price;
         this.mortgage = mortgage;
         isOwned = false;
     }
-    public int getPrice(){
+
+    public int getPrice() {
         return price;
     }
-    public int getMortgage(){
+
+    public int getMortgage() {
         return mortgage;
     }
-    public boolean isOwned(){
+
+    public boolean isOwned() {
         return isOwned;
     }
 }

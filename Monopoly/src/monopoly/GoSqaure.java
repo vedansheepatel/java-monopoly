@@ -9,16 +9,14 @@ package monopoly;
  *
  * @author patev6618
  */
-public class GoSqaure extends Location{
-    
-    
-    
-    public GoSqaure (String name, int positionNumber){
-        super (name, positionNumber);
+public class GoSqaure extends Location {
+
+    public GoSqaure(String name, int positionNumber) {
+        super(name, positionNumber);
     }
-    
-    public String printToScreen(){
+
+    public String printToScreen() {
         return "You are in go square. Collect $100 from bank.";
     }
-    
+
 }

@@ -10,16 +10,16 @@ package monopoly;
  * @author patev6618
  */
 public class Monopoly {
-   
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
         // TODO code application logic here
-         PlayGame game = new PlayGame();
-         game.PlayGame();
-         
+        PlayGame game = new PlayGame();
+        game.PlayGame();
+
     }
-    
+
 }

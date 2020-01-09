@@ -10,13 +10,17 @@ package monopoly;
  * @author patev6618
  */
 public class FreeParking extends Location {
-    
-    
-    public FreeParking (String name, int positionNumber){
-        super (name, positionNumber);
+    /**
+     * 
+     * @param name
+     * @param positionNumber 
+     */
+
+    public FreeParking(String name, int positionNumber) {
+        super(name, positionNumber);
     }
-    
-    public String PrintToScreen(){
+
+    public String PrintToScreen() {
         return "You are using the Free Parking service";
     }
 }

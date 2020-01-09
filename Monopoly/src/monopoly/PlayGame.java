@@ -10,5 +10,5 @@ package monopoly;
  * @author patev6618
  */
 public class PlayGame {
-    
+
 }
