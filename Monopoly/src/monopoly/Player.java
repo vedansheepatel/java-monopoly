@@ -63,12 +63,12 @@ public class Player {
 //       }
 //      
 //   }
-    //getter methods 
-    public String getName() {
-        return this.name;
-    }
-
-    public int getBalance() {
-        return this.balance;
-    }
+   
+   //getter methods 
+    public String getName(){
+       return this.name;
+   }
+   public int getBalance(){
+       return this.balance;
+   }
 }
