@@ -7,12 +7,14 @@ package monopoly;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author patev6618
  */
 public class Player {
-
+    private Die die;
+    private Board board;
     private String name;
     private int balance;
     private int position;
@@ -34,7 +36,6 @@ public class Player {
         if (balance > moneyAmount) {
             this.balance = balance - moneyAmount;
         }
-        //add an else statement here  
     }
 
     public int getCurrentPosition() {
@@ -45,15 +46,17 @@ public class Player {
         this.position = position;
     }
 
-    public int rollDie(Die die) {
-        return die.getFace();
+    public int getRoll(Die die) {
+         return die.getFace();
     }
 
     public void purchaseProperty() {
 
     }
-    public void movePlayer (int position){
-        
+    public void movePlayer (int position, int rollDie){
+        if (die.getFace() == 1){
+           
+        }
     }
 
 //   public void isInJail(boolean isInjail){
