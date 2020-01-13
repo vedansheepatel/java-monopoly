@@ -61,5 +61,11 @@ public class Board {
         
     }
    
-            
+       public int getX(int position)  {
+           return locations[position].getPositionX();
+       }
+       
+       public int getY (int position){
+             return locations[position].getPositionY();
+       }
 }
