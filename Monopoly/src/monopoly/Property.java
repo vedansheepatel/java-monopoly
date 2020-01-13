@@ -14,12 +14,14 @@ public class Property extends Location {
     private int price;
     private int rent;
     private boolean isOwned;
+    private Player owner;
 
-    public Property(String name, int positionNumber, int price, int rent, boolean isOwned) {
-        super(name, positionNumber);
+    public Property(String name, int positionX, int positionY, int price, int rent, boolean isOwned) {
+        super(name, positionX, positionY);
         this.price = price;
         this.rent = rent;
         isOwned = false;
+        
     }
 
     public int getPrice() {
@@ -31,7 +33,7 @@ public class Property extends Location {
     }
 
     public boolean isOwned() {
-        return isOwned;
+           return isOwned;
     }
 
 }

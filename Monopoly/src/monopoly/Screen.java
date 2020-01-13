@@ -11,6 +11,10 @@ package monopoly;
  */
 public class Screen extends javax.swing.JFrame {
     private Die die;
+    private Player player;
+    private Board board;
+    
+  
     int x = 100;
     /**
      * Creates new form Screen
@@ -18,6 +22,8 @@ public class Screen extends javax.swing.JFrame {
     public Screen() {
         initComponents();
         die = new Die ();
+        board = new Board();
+        
     }
 
     /**
@@ -33,6 +39,7 @@ public class Screen extends javax.swing.JFrame {
         dieFace = new javax.swing.JLabel();
         boardPanel1 = new monopoly.BoardPanel();
         player1 = new javax.swing.JLabel();
+        buy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,6 +50,8 @@ public class Screen extends javax.swing.JFrame {
             }
         });
 
+        boardPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
+
         player1.setText("jLabel3");
 
         javax.swing.GroupLayout boardPanel1Layout = new javax.swing.GroupLayout(boardPanel1);
@@ -50,17 +59,24 @@ public class Screen extends javax.swing.JFrame {
         boardPanel1Layout.setHorizontalGroup(
             boardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanel1Layout.createSequentialGroup()
-                .addContainerGap(810, Short.MAX_VALUE)
+                .addContainerGap(593, Short.MAX_VALUE)
                 .addComponent(player1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(50, 50, 50))
         );
         boardPanel1Layout.setVerticalGroup(
             boardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanel1Layout.createSequentialGroup()
-                .addContainerGap(746, Short.MAX_VALUE)
+                .addContainerGap(642, Short.MAX_VALUE)
                 .addComponent(player1)
-                .addGap(38, 38, 38))
+                .addGap(44, 44, 44))
         );
+
+        buy.setText("Buy");
+        buy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,10 +86,12 @@ public class Screen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(140, 140, 140)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dieFace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dieFace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buy))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,11 +101,13 @@ public class Screen extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
+                        .addComponent(jButton1)
+                        .addGap(128, 128, 128)
+                        .addComponent(buy))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,36 +115,41 @@ public class Screen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       
+        // dieFace.repaint();
+        //player1.setLocation(600, 750);
+        // this.repaint();
         switch (this.die.getFace()){
             case 1:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 1.gif"));
-                break;
+                player1.setLocation(board.locations[1].getPositionX(), board.locations[1].getPositionY());
+                break;  
             case 2:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 2.png"));
                 break;
             case 3: 
-                
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 3.png"));
                 break;
             case 4:
-                
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 4.png"));
                 break;
             case 5:
-                
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 5.png"));
                 break;
             case 6:
-                
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 6.png"));
                 break;
         }
         dieFace.repaint();
-        player1.setLocation(x, 10);
-        this.repaint();
+         player1.setLocation(105, 640);
+         this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void buyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyActionPerformed
+
+        player.purchaseProperty();
+    }//GEN-LAST:event_buyActionPerformed
+      
+        
     
     
     /**
@@ -164,6 +189,7 @@ public class Screen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private monopoly.BoardPanel boardPanel1;
+    private javax.swing.JButton buy;
     private javax.swing.JLabel dieFace;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel player1;

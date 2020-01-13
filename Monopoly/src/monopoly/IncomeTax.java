@@ -11,8 +11,8 @@ package monopoly;
  */
 public class IncomeTax extends Location {
 
-    public IncomeTax(String name, int positionNumber) {
-        super(name, positionNumber);
+    public IncomeTax(String name, int positionX, int positionY) {
+        super(name, positionX, positionY);
     }
 
     public String printToScreen() {

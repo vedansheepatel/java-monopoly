@@ -11,8 +11,8 @@ package monopoly;
  */
 public class Jail extends Location {
 
-    public Jail(String name, int positionNumber) {
-        super(name, positionNumber);
+    public Jail(String name, int positionX, int positionY) {
+        super(name, positionX, positionY);
     }
 
     public String printToScreen() {

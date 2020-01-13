@@ -7,23 +7,27 @@ package monopoly;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author patev6618
  */
 public class Player {
-
+    private Die die;
+    private Board board;
     private String name;
     private int balance;
     private int position;
+    private Property property;
 //    private int leaveJailFree;
 //    private boolean isInJail;
     private ArrayList<Property> allProperties;
 
     public Player(String name, int balance, int position) {
         this.name = name;
-        this.balance = balance;
+        this.balance = 1500;
         this.position = position;
+       
     }
 
     public void addMoney(int moneyAmount) {
@@ -34,7 +38,6 @@ public class Player {
         if (balance > moneyAmount) {
             this.balance = balance - moneyAmount;
         }
-        //add an else statement here  
     }
 
     public int getCurrentPosition() {
@@ -45,15 +48,22 @@ public class Player {
         this.position = position;
     }
 
-    public int rollDie(Die die) {
-        return die.getFace();
+    public int getRoll(Die die) {
+         return die.getFace();
     }
 
     public void purchaseProperty() {
-
+        if (property.isOwned() == false){
+            balance = balance - property.getPrice();
+            this.allProperties.add(property);
+        }else{
+            System.out.println("This property is already owned. You can not buy it.");
+        }
     }
-    public void movePlayer (int position){
-        
+    public void movePlayer (int position, int rollDie){
+        if (die.getFace() == 1){
+           
+        }
     }
 
 //   public void isInJail(boolean isInjail){

@@ -10,14 +10,15 @@ package monopoly;
  * @author patev6618
  */
 public class FreeParking extends Location {
-    /**
-     * 
-     * @param name
-     * @param positionNumber 
-     */
+   /**
+    * 
+    * @param name
+    * @param positionX
+    * @param positionY 
+    */
 
-    public FreeParking(String name, int positionNumber) {
-        super(name, positionNumber);
+    public FreeParking(String name, int positionX, int positionY) {
+        super(name, positionX, positionY);
     }
 
     public String PrintToScreen() {

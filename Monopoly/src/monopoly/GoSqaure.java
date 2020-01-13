@@ -11,8 +11,8 @@ package monopoly;
  */
 public class GoSqaure extends Location {
 
-    public GoSqaure(String name, int positionNumber) {
-        super(name, positionNumber);
+    public GoSqaure(String name, int positionX, int positionY) {
+        super(name, positionX, positionY);
     }
 
     public String printToScreen() {

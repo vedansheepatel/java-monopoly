@@ -15,8 +15,8 @@ public class Utility extends Location {
     private int mortgage;
     private boolean isOwned;
 
-    public Utility(String name, int positionNumber, int price, int mortgage, boolean isOwned) {
-        super(name, positionNumber);
+    public Utility(String name, int positionX, int positionY, int price, int mortgage, boolean isOwned) {
+        super(name, positionX, positionY);
         this.price = price;
         this.mortgage = mortgage;
         isOwned = false;

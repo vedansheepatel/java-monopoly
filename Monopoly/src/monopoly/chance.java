@@ -11,8 +11,8 @@ package monopoly;
  */
 public class chance extends Location {
 
-    public chance(String name, int positionNumber) {
-        super(name, positionNumber);
+    public chance(String name, int positionX, int positionY) {
+        super(name, positionX, positionY);
     }
 
 }
