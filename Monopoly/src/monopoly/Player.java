@@ -12,20 +12,7 @@ import java.util.ArrayList;
  * @author patev6618
  */
 public class Player {
-//        if (die.getFace() == 1) {
-//            position = position + 1;
-//        } else if (die.getFace() == 2) {
-//            position = position + 2;
-//        } else if (die.getFace() == 3) {
-//           position = position + 3;
-//       } else if (die.getFace() == 4) {
-//           position = position + 4;
-//        } else if (die.getFace() == 5) {
-//            position = position + 5;
-//        } else if (die.getFace() == 6) {
-//          position = position + 6;
-//        }
-        //position = (position + die.getFace()) % 40;
+
    
     private Board board;
     private String name;
@@ -76,22 +63,22 @@ public class Player {
     }
 
     public void add1(Die die) {
-        position = position + 1;
+       position = (position + 1) % 40;
     }
     public void add2(Die die){
-        position = position + 2;
+        position = (position + 2) % 40;
     }
     public void add3(Die die){
-        position = position + 3;
+       position = (position + 3) % 40;
     }
     public void add4(Die die){
-        position = position + 4;
+        position = (position + 4) % 40;
     }
     public void add5 (Die die){
-        position = position + 5;
+       position = (position + 5) % 40;
     }
     public void add6 (Die die){
-        position = position + 6;
+        position = (position + 6) % 40;
     }
 
 //   public void isInJail(boolean isInjail){

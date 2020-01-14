@@ -20,7 +20,7 @@ public class Property extends Location {
         super(name, positionX, positionY);
         this.price = price;
         this.rent = rent;
-        isOwned = false;
+        this.isOwned = false;
         
     }
 

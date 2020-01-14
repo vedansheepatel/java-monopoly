@@ -5,6 +5,8 @@
  */
 package monopoly;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author patev6618
@@ -14,7 +16,6 @@ public class Screen extends javax.swing.JFrame {
     private Die die;
     private Player player;
     private Board board;
-
     int x = 100;
 
     /**
@@ -39,8 +40,9 @@ public class Screen extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         dieFace = new javax.swing.JLabel();
         boardPanel1 = new monopoly.BoardPanel();
-        jLabel1 = new javax.swing.JLabel();
         buy = new javax.swing.JButton();
+        showBalance = new javax.swing.JTextField();
+        viewInformation = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,29 +55,31 @@ public class Screen extends javax.swing.JFrame {
 
         boardPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
 
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout boardPanel1Layout = new javax.swing.GroupLayout(boardPanel1);
         boardPanel1.setLayout(boardPanel1Layout);
         boardPanel1Layout.setHorizontalGroup(
             boardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanel1Layout.createSequentialGroup()
-                .addContainerGap(632, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34))
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         boardPanel1Layout.setVerticalGroup(
             boardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanel1Layout.createSequentialGroup()
-                .addContainerGap(650, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(36, 36, 36))
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         buy.setText("Buy");
         buy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyActionPerformed(evt);
+            }
+        });
+
+        showBalance.setEditable(false);
+        showBalance.setText("1500");
+
+        viewInformation.setText("View Card");
+        viewInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewInformationActionPerformed(evt);
             }
         });
 
@@ -86,12 +90,24 @@ public class Screen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addComponent(buy)
-                    .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(showBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(dieFace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(viewInformation)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buy, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(31, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,8 +118,12 @@ public class Screen extends javax.swing.JFrame {
                         .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
-                        .addGap(128, 128, 128)
-                        .addComponent(buy))
+                        .addGap(94, 94, 94)
+                        .addComponent(showBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(viewInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buy, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -118,11 +138,11 @@ public class Screen extends javax.swing.JFrame {
         // dieFace.repaint();
         //player1.setLocation(600, 750);
         // this.repaint();
-
+        showBalance.setText("" + player.getBalance());
         switch (this.die.getFace()) {
             case 1:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 1.gif"));
-               player.add1(die);
+                player.add1(die);
                 this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 2:
@@ -158,8 +178,15 @@ public class Screen extends javax.swing.JFrame {
     private void buyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyActionPerformed
 
         //add stuff
+        
         player.purchaseProperty();
     }//GEN-LAST:event_buyActionPerformed
+
+    private void viewInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewInformationActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, board.getName(player.getCurrentPosition()) + "\n Price:$" + board.getPrice(player.getCurrentPosition())+ "\n Rent:$" + board.getRent(player.getCurrentPosition()));
+        //JOptionPane.showMessageDialog(null, board.getName(player.getCurrentPosition()) + "\n Price:$" + board.getUtilityPrice(player.getCurrentPosition()));
+    }//GEN-LAST:event_viewInformationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +228,7 @@ public class Screen extends javax.swing.JFrame {
     private javax.swing.JButton buy;
     private javax.swing.JLabel dieFace;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField showBalance;
+    private javax.swing.JButton viewInformation;
     // End of variables declaration//GEN-END:variables
 }

@@ -68,4 +68,34 @@ public class Board {
        public int getY (int position){
              return locations[position].getPositionY();
        }
+       
+       public String getName(int position){
+           return locations[position].getName();
+       }
+       public int getPrice(int position){
+            Property p = (Property)locations[position];
+          if ( locations[position] instanceof Property){
+               
+                 return p.getPrice();
+          }else{
+              System.out.println("Not a Property");
+          }
+            return p.getPrice();
+       }
+        public int getRent(int position){
+            Property p = (Property)locations[position];
+          if ( locations[position] instanceof Property){
+               
+                 return p.getRent();
+          }
+            return p.getRent();
+       }
+        
+        public int getUtilityPrice(int position){
+            Utility u = (Utility)locations[position];
+            if (locations[position] instanceof Utility){
+                return u.getPrice();
+            }
+            return u.getPrice();
+        }
 }
