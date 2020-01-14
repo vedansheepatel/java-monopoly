@@ -39,6 +39,7 @@ public class Screen extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         dieFace = new javax.swing.JLabel();
         boardPanel1 = new monopoly.BoardPanel();
+        jLabel1 = new javax.swing.JLabel();
         buy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,15 +53,23 @@ public class Screen extends javax.swing.JFrame {
 
         boardPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout boardPanel1Layout = new javax.swing.GroupLayout(boardPanel1);
         boardPanel1.setLayout(boardPanel1Layout);
         boardPanel1Layout.setHorizontalGroup(
             boardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanel1Layout.createSequentialGroup()
+                .addContainerGap(632, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34))
         );
         boardPanel1Layout.setVerticalGroup(
             boardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boardPanel1Layout.createSequentialGroup()
+                .addContainerGap(650, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(36, 36, 36))
         );
 
         buy.setText("Buy");
@@ -109,29 +118,37 @@ public class Screen extends javax.swing.JFrame {
         // dieFace.repaint();
         //player1.setLocation(600, 750);
         // this.repaint();
-        
-
 
         switch (this.die.getFace()) {
             case 1:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 1.gif"));
-                player.changePositions(die);
+               player.add1(die);
                 this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
-                System.out.println("here");
                 break;
             case 2:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 2.png"));
+                player.add2(die);
+                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 3:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 3.png"));
+                player.add3(die);
+                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 4:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 4.png"));
+                player.add4(die);
+                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 5:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 5.png"));
+                player.add5(die);
+                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 6:
+                dieFace.setIcon(new javax.swing.ImageIcon("Dice 6.png"));
+                player.add6(die);
+                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
         }
         this.repaint();
@@ -184,5 +201,6 @@ public class Screen extends javax.swing.JFrame {
     private javax.swing.JButton buy;
     private javax.swing.JLabel dieFace;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
