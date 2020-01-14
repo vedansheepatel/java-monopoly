@@ -11,14 +11,12 @@ package monopoly;
  */
 public class Board {
 
-    
     private Location[] locations = new Location[40];
-    
 
     public Board() {
         //name, x, y, price, rent, isOwned
-        
-        locations[0] = new GoSqaure("Go", 650,650);
+
+        locations[0] = new GoSqaure("Go", 650, 650);
         locations[1] = new Property("Mediteranean Avenue", 575, 650, 60, 2, false);
         locations[2] = new communityChest("Community Chest", 520, 650);
         locations[3] = new Property("Baltic Avenue", 465, 650, 80, 4, false);
@@ -40,7 +38,7 @@ public class Board {
         locations[19] = new Property("New York Avenue", 45, 115, 200, 16, false);
         locations[20] = new FreeParking("Free Parking", 45, 50);
         locations[21] = new Property("Kentucky Avenue", 100, 40, 220, 18, false);
-        locations[22] = new chance("Chance", 160,40);
+        locations[22] = new chance("Chance", 160, 40);
         locations[23] = new Property("Indiana Avenue", 220, 40, 220, 18, false);
         locations[24] = new Property("Illinois Avenue", 280, 40, 240, 20, false);
         locations[25] = new Property("B.&.O Railroad", 335, 40, 200, 25, false);
@@ -49,7 +47,7 @@ public class Board {
         locations[28] = new Utility("Water Works", 500, 40, 150, 75, false);
         locations[29] = new Property("Marvin Gardens", 555, 40, 280, 24, false);
         locations[30] = new GoToJail("Go To Jail", 630, 40);
-        locations[31] = new Property("Pacific Avenue", 640, 115 , 300, 26, false);
+        locations[31] = new Property("Pacific Avenue", 640, 115, 300, 26, false);
         locations[32] = new Property("North Carolina Avenue", 640, 170, 300, 26, false);
         locations[33] = new communityChest("Community Chest", 640, 230);
         locations[34] = new Property("Pennsylvania Avenue", 640, 285, 320, 28, false);
@@ -58,44 +56,53 @@ public class Board {
         locations[37] = new Property("Par Place", 640, 455, 350, 35, false);
         locations[38] = new IncomeTax("Luxury Tax", 640, 515);
         locations[39] = new Property("BoardWalk", 640, 570, 400, 50, false);
-        
+
     }
-   
-       public int getX(int position)  {
-           return locations[position].getPositionX();
-       }
-       
-       public int getY (int position){
-             return locations[position].getPositionY();
-       }
-       
-       public String getName(int position){
-           return locations[position].getName();
-       }
-       public int getPrice(int position){
-            Property p = (Property)locations[position];
-          if ( locations[position] instanceof Property){
-               
-                 return p.getPrice();
-          }else{
-              System.out.println("Not a Property");
-          }
+
+    public int getX(int position) {
+        return locations[position].getPositionX();
+    }
+
+    public int getY(int position) {
+        return locations[position].getPositionY();
+    }
+
+    public String getName(int position) {
+        return locations[position].getName();
+    }
+
+    public int getPrice(int position) {
+        Property p = (Property) locations[position];
+        if (locations[position] instanceof Property) {
+
             return p.getPrice();
-       }
-        public int getRent(int position){
-            Property p = (Property)locations[position];
-          if ( locations[position] instanceof Property){
-               
-                 return p.getRent();
-          }
+        } else {
+            System.out.println("Not a Property");
+        }
+        return p.getPrice();
+    }
+
+    public int getRent(int position) {
+        Property p = (Property) locations[position];
+        if (locations[position] instanceof Property) {
+
             return p.getRent();
-       }
-        
-        public int getUtilityPrice(int position){
-            Utility u = (Utility)locations[position];
-            if (locations[position] instanceof Utility){
-                return u.getPrice();
-            }
+        }
+        return p.getRent();
+    }
+
+    public int getUtilityPrice(int position) {
+        Utility u = (Utility) locations[position];
+        if (locations[position] instanceof Utility) {
             return u.getPrice();
         }
+        return u.getPrice();
+    }
+    public int getUtilityMortgage(int position) {
+        Utility u = (Utility) locations[position];
+        if (locations[position] instanceof Utility) {
+            return u.getMortgage();
+        }
+        return u.getMortgage();
+    }
 }

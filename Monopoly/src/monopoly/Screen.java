@@ -26,6 +26,7 @@ public class Screen extends javax.swing.JFrame {
         die = new Die();
         board = new Board();
         player = new Player("Bob", 1500, 0);
+        
     }
 
     /**
@@ -139,36 +140,41 @@ public class Screen extends javax.swing.JFrame {
         //player1.setLocation(600, 750);
         // this.repaint();
         showBalance.setText("" + player.getBalance());
+        if (board.getName(player.getCurrentPosition()).equals("IncomeTax")){
+           JOptionPane.showMessageDialog(null, "You landed on Income Tax. Paying $200 to bank.");
+           player.takeMoney(200);
+           showBalance.setText("" + player.getBalance());
+        }
         switch (this.die.getFace()) {
             case 1:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 1.gif"));
                 player.add1(die);
-                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
+                this.boardPanel1.setLocation(1, board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 2:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 2.png"));
                 player.add2(die);
-                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
+                this.boardPanel1.setLocation(1, board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 3:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 3.png"));
                 player.add3(die);
-                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
+                this.boardPanel1.setLocation(1, board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 4:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 4.png"));
                 player.add4(die);
-                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
+                this.boardPanel1.setLocation(1, board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 5:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 5.png"));
                 player.add5(die);
-                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
+                this.boardPanel1.setLocation(1, board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
             case 6:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 6.png"));
                 player.add6(die);
-                this.boardPanel1.setLocation(1,board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
+                this.boardPanel1.setLocation(1, board.getX(player.getCurrentPosition()), board.getY(player.getCurrentPosition()));
                 break;
         }
         this.repaint();
@@ -178,14 +184,19 @@ public class Screen extends javax.swing.JFrame {
     private void buyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyActionPerformed
 
         //add stuff
-        
         player.purchaseProperty();
     }//GEN-LAST:event_buyActionPerformed
 
     private void viewInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewInformationActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, board.getName(player.getCurrentPosition()) + "\n Price:$" + board.getPrice(player.getCurrentPosition())+ "\n Rent:$" + board.getRent(player.getCurrentPosition()));
-        //JOptionPane.showMessageDialog(null, board.getName(player.getCurrentPosition()) + "\n Price:$" + board.getUtilityPrice(player.getCurrentPosition()));
+       if (board.getName(player.getCurrentPosition()).contains("Avenue")||board.getName(player.getCurrentPosition()).contains("Railroad")||board.getName(player.getCurrentPosition()).contains("Place")||board.getName(player.getCurrentPosition()).contains("Gardens")||board.getName(player.getCurrentPosition()).contains("Place")){
+            JOptionPane.showMessageDialog(null, board.getName(player.getCurrentPosition()) + "\n Price: $" + board.getPrice(player.getCurrentPosition()) + "\n Rent: $" + board.getRent(player.getCurrentPosition()));
+       }else if (board.getName(player.getCurrentPosition()).equals("Electricity Company") ||board.getName(player.getCurrentPosition()).equals("Water Works")){
+            JOptionPane.showMessageDialog(null, board.getName(player.getCurrentPosition()) + "\n Price: $" + board.getUtilityPrice(player.getCurrentPosition()) + "\n Mortgage: $" + board.getUtilityMortgage(player.getCurrentPosition()));
+       }
+           
+         
+      
     }//GEN-LAST:event_viewInformationActionPerformed
 
     /**

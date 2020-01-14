@@ -21,7 +21,7 @@ public class Property extends Location {
         this.price = price;
         this.rent = rent;
         this.isOwned = false;
-        
+
     }
 
     public int getPrice() {
@@ -33,7 +33,7 @@ public class Property extends Location {
     }
 
     public boolean isOwned() {
-           return isOwned;
+        return isOwned;
     }
 
 }

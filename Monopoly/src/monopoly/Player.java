@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class Player {
 
-   
     private Board board;
     private String name;
     private int balance;
@@ -45,10 +44,9 @@ public class Player {
         return this.position;
     }
 
-   // public void setPosition(int position) {
-     //   this.position = position;
+    // public void setPosition(int position) {
+    //   this.position = position;
     //}
-
     public int dieRoll(Die die) {
         return die.getFace();
     }
@@ -63,21 +61,26 @@ public class Player {
     }
 
     public void add1(Die die) {
-       position = (position + 1) % 40;
+        position = (position + 1) % 40;
     }
-    public void add2(Die die){
+
+    public void add2(Die die) {
         position = (position + 2) % 40;
     }
-    public void add3(Die die){
-       position = (position + 3) % 40;
+
+    public void add3(Die die) {
+        position = (position + 3) % 40;
     }
-    public void add4(Die die){
+
+    public void add4(Die die) {
         position = (position + 4) % 40;
     }
-    public void add5 (Die die){
-       position = (position + 5) % 40;
+
+    public void add5(Die die) {
+        position = (position + 5) % 40;
     }
-    public void add6 (Die die){
+
+    public void add6(Die die) {
         position = (position + 6) % 40;
     }
 

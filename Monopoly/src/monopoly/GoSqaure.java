@@ -16,7 +16,7 @@ public class GoSqaure extends Location {
     }
 
     public String printToScreen() {
-        return "You are in go square. Collect $100 from bank.";
+        return "You are passed go square. Collect $100 from bank.";
     }
 
 }

@@ -10,13 +10,10 @@ package monopoly;
  * @author patev6618
  */
 public class GoToJail extends Location {
-    
-    
-    public GoToJail (String name, int positionX, int positionY){
-        super (name, positionX, positionY);
-        
-                
+
+    public GoToJail(String name, int positionX, int positionY) {
+        super(name, positionX, positionY);
+
     }
-    
-   
+
 }

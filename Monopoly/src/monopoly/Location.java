@@ -32,7 +32,8 @@ public class Location {
     public int getPositionX() {
         return positionX;
     }
-    public int getPositionY(){
+
+    public int getPositionY() {
         return positionY;
     }
 
