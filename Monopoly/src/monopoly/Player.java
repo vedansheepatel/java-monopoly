@@ -18,16 +18,15 @@ public class Player {
     private int balance;
     private int position;
     private Property property;
-    private int dieRoll;
-//    private int leaveJailFree;
-//    private boolean isInJail;
     private ArrayList<Property> allProperties;
+ 
+    
 
     public Player(String name, int balance, int position) {
         this.name = name;
         this.balance = 1500;
         this.position = 0;
-
+        this.allProperties = new ArrayList<>();
     }
 
     public void addMoney(int moneyAmount) {
@@ -44,20 +43,13 @@ public class Player {
         return this.position;
     }
 
-    // public void setPosition(int position) {
-    //   this.position = position;
-    //}
-    public int dieRoll(Die die) {
-        return die.getFace();
-    }
+   
 
-    public void purchaseProperty() {
-        if (property.isOwned() == false) {
-            balance = balance - property.getPrice();
-            this.allProperties.add(property);
-        } else {
-            System.out.println("This property is already owned. You can not buy it.");
-        }
+    public void addProperty(Property p) {
+         this.allProperties.add(p);
+    }
+    public ArrayList<Property> getProperties(){
+       return this.allProperties;
     }
 
     public void add1(Die die) {

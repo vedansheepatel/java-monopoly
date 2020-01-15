@@ -70,7 +70,13 @@ public class Board {
     public String getName(int position) {
         return locations[position].getName();
     }
-
+public Property getProperty(int position){
+    Property p = (Property) locations[position];
+    if (locations[position] instanceof Property){
+        return p;
+    }
+    return p;
+}
     public int getPrice(int position) {
         Property p = (Property) locations[position];
         if (locations[position] instanceof Property) {
