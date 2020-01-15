@@ -13,15 +13,19 @@ public class Property extends Location {
 
     private int price;
     private int rent;
-    private boolean isOwned;
+    boolean isOwned;
     private Player owner;
 
     public Property(String name, int positionX, int positionY, int price, int rent, boolean isOwned) {
         super(name, positionX, positionY);
         this.price = price;
         this.rent = rent;
-        this.isOwned = false;
 
+    }
+    @Override
+    public String toString(){
+        String n = super.getName();
+        return n;
     }
 
     public int getPrice() {

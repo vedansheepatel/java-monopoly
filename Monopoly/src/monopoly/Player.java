@@ -6,6 +6,7 @@
 package monopoly;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,6 @@ public class Player {
     private int position;
     private Property property;
     private ArrayList<Property> allProperties;
- 
-    
 
     public Player(String name, int balance, int position) {
         this.name = name;
@@ -43,13 +42,19 @@ public class Player {
         return this.position;
     }
 
-   
+    public void addProperty(Property p, int price) {
+        if (p.isOwned() == false) {
+            balance = balance - price;
+            this.allProperties.add(p);
+            p.isOwned = true;
+        } else {
+            JOptionPane.showMessageDialog(null, "This property is already owned");
+        }
 
-    public void addProperty(Property p) {
-         this.allProperties.add(p);
     }
-    public ArrayList<Property> getProperties(){
-       return this.allProperties;
+
+    public ArrayList<Property> getProperties() {
+        return this.allProperties;
     }
 
     public void add1(Die die) {

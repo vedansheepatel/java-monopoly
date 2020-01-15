@@ -19,8 +19,11 @@ public class BoardPanel extends JPanel {
 
     private BufferedImage img;
     private BufferedImage player1;
+    private BufferedImage player2;
     private int p1X = 630;
     private int p1Y = 630;
+    private int p2X = 650;
+    private int p2Y = 650;
 
     public BoardPanel() {
         super();
@@ -32,6 +35,11 @@ public class BoardPanel extends JPanel {
 
         try {
             player1 = ImageIO.read(new File("Monopoly car piece.jpg"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         try {
+            player2 = ImageIO.read(new File("Monopoly hat piece.jpg"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,6 +55,9 @@ public class BoardPanel extends JPanel {
         if (playerNumber == 1) {
             this.p1X = x;
             this.p1Y = y;
+        }else if (playerNumber == 2){
+            this.p2X = x;
+            this.p2Y = y;
         }
 
         repaint();

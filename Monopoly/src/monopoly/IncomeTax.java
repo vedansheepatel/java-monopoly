@@ -14,8 +14,8 @@ public class IncomeTax extends Location {
     public IncomeTax(String name, int positionX, int positionY) {
         super(name, positionX, positionY);
     }
-   // public String getInstruction(){
-       // return "You have landed on a Tax Sqaure. Paying $200 to bank";
+    // public String getInstruction(){
+    // return "You have landed on a Tax Sqaure. Paying $200 to bank";
     //}
-   
+
 }
