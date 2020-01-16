@@ -19,16 +19,22 @@ public class Player {
     private int balance;
     private int position;
     private Property property;
-    private boolean isTurn;
+   boolean isTurn;
     private ArrayList<Property> allProperties;
 
-    public Player(String name, int balance, int position) {
+    public Player(String name, int balance, int position, boolean isTurn) {
         this.name = name;
         this.balance = 1500;
         this.position = 0;
         this.allProperties = new ArrayList<>();
+        
     }
-
+    public boolean getTurn(){
+        return isTurn;
+    }
+    //public int getRoll(Die die){
+        //return die.getFace();
+    //}
     public void addMoney(int moneyAmount) {
         this.balance = moneyAmount + balance;
     }

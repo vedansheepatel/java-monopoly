@@ -38,7 +38,7 @@ public class BoardPanel extends JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-         try {
+        try {
             player2 = ImageIO.read(new File("Monopoly hat piece.jpg"));
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,13 +49,15 @@ public class BoardPanel extends JPanel {
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
         g.drawImage(player1, p1X, p1Y, player1.getWidth(), player1.getHeight(), null);
+        g.drawImage(player2, p2X, p2Y, player2.getWidth(), player2.getHeight(), null);
+        
     }
 
     public void setLocation(int playerNumber, int x, int y) {
         if (playerNumber == 1) {
             this.p1X = x;
             this.p1Y = y;
-        }else if (playerNumber == 2){
+        } else if (playerNumber == 2) {
             this.p2X = x;
             this.p2Y = y;
         }
