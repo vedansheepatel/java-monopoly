@@ -15,7 +15,7 @@ public class Property extends Location {
     private int rent;
     boolean isOwned;
     private Player owner;
-
+     
     public Property(String name, int positionX, int positionY, int price, int rent, boolean isOwned) {
         super(name, positionX, positionY);
         this.price = price;
@@ -33,6 +33,11 @@ public class Property extends Location {
     }
 
     public int getRent() {
+      //  if (super.getName().equals("Water Works")|| super.getName().equals("Electricity Company")){
+            
+        //}else{
+            //return rent;
+      //  }
         return rent;
     }
 

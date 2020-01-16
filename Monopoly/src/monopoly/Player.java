@@ -19,6 +19,7 @@ public class Player {
     private int balance;
     private int position;
     private Property property;
+    private boolean isTurn;
     private ArrayList<Property> allProperties;
 
     public Player(String name, int balance, int position) {
@@ -37,6 +38,10 @@ public class Player {
             this.balance = balance - moneyAmount;
         }
     }
+    public int setPosition(int newPosition){
+        position = newPosition;
+        return position;
+    }
 
     public int getCurrentPosition() {
         return this.position;
@@ -51,6 +56,9 @@ public class Player {
             JOptionPane.showMessageDialog(null, "This property is already owned");
         }
 
+    }
+    public int getNumOfProperties(){
+        return allProperties.size();
     }
 
     public ArrayList<Property> getProperties() {
