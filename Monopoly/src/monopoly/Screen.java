@@ -196,9 +196,10 @@ public class Screen extends javax.swing.JFrame {
                     .addComponent(player1ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(player2ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numOfProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numOfProperties2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(numOfProperties2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(numOfProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,19 +308,32 @@ public class Screen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, player1.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(1, board.getX(10), board.getY(10));
             player1.setPosition(10);
-            
+
         }
         if (board.getName(player2.getCurrentPosition()).equals("Go To Jail")) {
             JOptionPane.showMessageDialog(null, player2.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(2, board.getX(10), board.getY(10));
             player2.setPosition(10);
+           
         }
-//        if () {
-//            JOptionPane.showMessageDialog(null, player2.getName() + " has to pay rent to " + player1.getName());
-//            player2.takeMoney(board.getRent(player2.getCurrentPosition()));
-//            player1.addMoney(board.getRent(player2.getCurrentPosition()));
-//        }
-//        
+
+        if (board.getName(player2.getCurrentPosition()).equals(player1.findProperty(board.getName(player2.getCurrentPosition())))) {
+            JOptionPane.showMessageDialog(null, player2.getName() + " has to pay rent to " + player1.getName());
+            player2.takeMoney(board.getRent(player2.getCurrentPosition()));
+            player1.addMoney(board.getRent(player2.getCurrentPosition()));
+            player1ShowBalance.setText("" + player1.getBalance());
+            player2ShowBalance.setText("" + player2.getBalance());
+            turn = !turn;
+        }
+        if (board.getName(player1.getCurrentPosition()).equals(player2.findProperty(board.getName(player1.getCurrentPosition())))) {
+            JOptionPane.showMessageDialog(null, player1.getName() + " has to pay rent to " + player2.getName());
+            player1.takeMoney(board.getRent(player1.getCurrentPosition()));
+            player2.addMoney(board.getRent(player1.getCurrentPosition()));
+            player1ShowBalance.setText("" + player1.getBalance());
+            player2ShowBalance.setText("" + player2.getBalance());
+            turn = !turn;
+
+        }
         this.repaint();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -347,7 +361,6 @@ public class Screen extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition()));
             } else if (board.getName(player1.getCurrentPosition()).equals("Electricity Company") || board.getName(player1.getCurrentPosition()).equals("Water Works")) {
                 JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition()) * die.getFace());
-
             }
         }
         if (!turn) {
