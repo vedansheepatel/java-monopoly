@@ -25,17 +25,13 @@ public class Screen extends javax.swing.JFrame {
      * Creates new form Screen
      */
     public Screen() {
-     
-               initComponents();
-                
-                
-            
+            initComponents();
             board = new Board();
-                player1 = new Player("Bob", 1500, 0, true);
-                player2 = new Player("Billy", 1500, 0, false);
-                    die = new Die();
+            player1 = new Player("Bob", 1500, 0, true);
+            player2 = new Player("Billy", 1500, 0, false);
+            die = new Die();
                  
-        
+        jLabel1.setText(player1.getName() + "'s Balance:");
     }
 
     /**
@@ -51,11 +47,13 @@ public class Screen extends javax.swing.JFrame {
         dieFace = new javax.swing.JLabel();
         boardPanel1 = new monopoly.BoardPanel();
         buy = new javax.swing.JButton();
-        showBalance = new javax.swing.JTextField();
+        player1ShowBalance = new javax.swing.JTextField();
         viewInformation = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         numOfProperties = new javax.swing.JTextField();
+        player2ShowBalance = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,11 +84,11 @@ public class Screen extends javax.swing.JFrame {
             }
         });
 
-        showBalance.setEditable(false);
-        showBalance.setText("1500");
-        showBalance.addActionListener(new java.awt.event.ActionListener() {
+        player1ShowBalance.setEditable(false);
+        player1ShowBalance.setText("1500");
+        player1ShowBalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showBalanceActionPerformed(evt);
+                player1ShowBalanceActionPerformed(evt);
             }
         });
 
@@ -108,6 +106,16 @@ public class Screen extends javax.swing.JFrame {
 
         numOfProperties.setEditable(false);
 
+        player2ShowBalance.setEditable(false);
+        player2ShowBalance.setText("1500");
+        player2ShowBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                player2ShowBalanceActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,6 +123,11 @@ public class Screen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(player1ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(player2ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(viewInformation)
@@ -127,14 +140,14 @@ public class Screen extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(numOfProperties, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(showBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,8 +156,12 @@ public class Screen extends javax.swing.JFrame {
                 .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addGap(94, 94, 94)
-                .addComponent(showBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(player1ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(player2ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,24 +185,24 @@ public class Screen extends javax.swing.JFrame {
         switch (this.die.getFace()) {
             case 1:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 1.gif"));
-                if (turn == true){
-                   turn = false;
+                if (turn == false){
+                   turn = true;
                    player1.add1(die);
                 this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
                 }else{
-                    turn = true;
+                    turn = false;
                      player2.add1(die);
                 this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
                 break;
             case 2:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 2.png"));
-                if (turn == true){
-                   turn = false;
+                if (turn == false){
+                   turn = true;
                    player1.add2(die);
                 this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
                 }else{
-                    turn = true;
+                    turn = false;
                      player2.add2(die);
                 this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
@@ -193,48 +210,48 @@ public class Screen extends javax.swing.JFrame {
                 break;
             case 3:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 3.png"));
-                if (turn == true){
-                   turn = false;
+                if (turn == false){
+                   turn = true;
                    player1.add3(die);
                 this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
                 }else{
-                    turn = true;
+                    turn = false;
                      player2.add3(die);
                 this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
                 break;
             case 4:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 4.png"));
-               if (turn == true){
-                   turn = false;
+               if (turn == false){
+                   turn = true;
                    player1.add4(die);
                 this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
                 }else{
-                    turn = true;
+                    turn = false;
                      player2.add4(die);
                 this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
                 break;
             case 5:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 5.png"));
-                if (turn == true){
-                   turn = false;
+                if (turn == false){
+                   turn = true;
                    player1.add5(die);
                 this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
                 }else{
-                    turn = true;
+                    turn = false;
                      player2.add5(die);
                 this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
                 break;
             case 6:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 6.png"));
-               if (turn == true){
-                   turn = false;
+               if (turn == false){
+                   turn = true;
                    player1.add6(die);
                 this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
                 }else{
-                    turn = true;
+                    turn = false;
                      player2.add6(die);
                 this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
@@ -242,43 +259,77 @@ public class Screen extends javax.swing.JFrame {
         }
         
         if (board.getName(player1.getCurrentPosition()).contains("Tax")) {
-            JOptionPane.showMessageDialog(null, "You landed on a Tax Sqaure. Paying $200 to bank.");
+            JOptionPane.showMessageDialog(null, player1.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
             player1.takeMoney(200);
-            showBalance.setText("" + player1.getBalance());
+            player1ShowBalance.setText("" + player1.getBalance());
+            turn = false;
+        }
+        if (board.getName(player2.getCurrentPosition()).contains("Tax")){
+            JOptionPane.showMessageDialog(null, player2.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
+            player2.takeMoney(200);
+            turn = true;
+           player2ShowBalance.setText("" + player2.getBalance());
         }
         if (board.getName(player1.getCurrentPosition()).equals("Go To Jail")){
-            JOptionPane.showMessageDialog(null, "You have to go to Jail. Bye bye");
+            JOptionPane.showMessageDialog(null, player1.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(1,board.getX(10), board.getY(10));
             player1.setPosition(10);
-            
         }
-        
+        if (board.getName(player2.getCurrentPosition()).equals("Go To Jail")){
+            JOptionPane.showMessageDialog(null, player2.getName()+ " has to go to Jail. Bye bye");
+            this.boardPanel1.setLocation(2,board.getX(10), board.getY(10));
+            player2.setPosition(10);
+        }
         this.repaint();
         
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void buyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyActionPerformed
-        
+
+        if (turn = true){
         player1.addProperty(board.getProperty(player1.getCurrentPosition()), board.getPrice(player1.getCurrentPosition()));
-        showBalance.setText("" + player1.getBalance());
+        player1ShowBalance.setText("" + player1.getBalance());
         jTextArea1.setText("" + player1.getProperties());
         numOfProperties.setText("Properties owned:" + player1.getNumOfProperties());
+       
+        }
+        if (turn = false){
+        player2.addProperty(board.getProperty(player2.getCurrentPosition()), board.getPrice(player2.getCurrentPosition()));
+        player2ShowBalance.setText("" + player2.getBalance());
+       
+        //jTextArea1.setText("" + player2.getProperties());
+        //numOfProperties.setText("Properties owned:" + player2.getNumOfProperties());
+        }
     }//GEN-LAST:event_buyActionPerformed
     
     private void viewInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewInformationActionPerformed
         // TODO add your handling code here:
+        if (turn = true){  
         if (board.getName(player1.getCurrentPosition()).contains("Avenue") || board.getName(player1.getCurrentPosition()).contains("Railroad") || board.getName(player1.getCurrentPosition()).contains("Gardens") || board.getName(player1.getCurrentPosition()).contains("Place")) {
             JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition()));
         } else if (board.getName(player1.getCurrentPosition()).equals("Electricity Company") || board.getName(player1.getCurrentPosition()).equals("Water Works")) {
            JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition())*die.getFace());
         }
+      
+        }
+            if (board.getName(player2.getCurrentPosition()).contains("Avenue") || board.getName(player2.getCurrentPosition()).contains("Railroad") || board.getName(player2.getCurrentPosition()).contains("Gardens") || board.getName(player2.getCurrentPosition()).contains("Place")) {
+            JOptionPane.showMessageDialog(null, board.getName(player2.getCurrentPosition()) + "\n Price: $" + board.getPrice(player2.getCurrentPosition()) + "\n Rent: $" + board.getRent(player2.getCurrentPosition()));
+        } else if (board.getName(player2.getCurrentPosition()).equals("Electricity Company") || board.getName(player2.getCurrentPosition()).equals("Water Works")) {
+           JOptionPane.showMessageDialog(null, board.getName(player2.getCurrentPosition()) + "\n Price: $" + board.getPrice(player2.getCurrentPosition()) + "\n Rent: $" + board.getRent(player2.getCurrentPosition())*die.getFace());
+        }
+        
+        
         
     }//GEN-LAST:event_viewInformationActionPerformed
         
-    private void showBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showBalanceActionPerformed
+    private void player1ShowBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player1ShowBalanceActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_showBalanceActionPerformed
+    }//GEN-LAST:event_player1ShowBalanceActionPerformed
+
+    private void player2ShowBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ShowBalanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_player2ShowBalanceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,10 +371,12 @@ public class Screen extends javax.swing.JFrame {
     private javax.swing.JButton buy;
     private javax.swing.JLabel dieFace;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField numOfProperties;
-    private javax.swing.JTextField showBalance;
+    private javax.swing.JTextField player1ShowBalance;
+    private javax.swing.JTextField player2ShowBalance;
     private javax.swing.JButton viewInformation;
     // End of variables declaration//GEN-END:variables
 }
