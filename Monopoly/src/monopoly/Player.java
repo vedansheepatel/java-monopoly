@@ -66,6 +66,15 @@ public class Player {
     public int getNumOfProperties(){
         return allProperties.size();
     }
+//   public Boolean findProperty (String name){
+//       for (Property p : this.allProperties){
+//           if (p.getName().equals(name)){
+//               return true;
+//           }
+//       }
+//       retrn false;
+//   }
+//    
 
     public ArrayList<Property> getProperties() {
         return this.allProperties;

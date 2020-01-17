@@ -32,7 +32,6 @@ public class BoardPanel extends JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         try {
             player1 = ImageIO.read(new File("Monopoly car piece.jpg"));
         } catch (Exception e) {
@@ -47,10 +46,16 @@ public class BoardPanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
-        g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
-        g.drawImage(player1, p1X, p1Y, player1.getWidth(), player1.getHeight(), null);
-        g.drawImage(player2, p2X, p2Y, player2.getWidth(), player2.getHeight(), null);
-        
+        if (img != null) {
+            g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
+        }
+        if (player1 != null) {
+            g.drawImage(player1, p1X, p1Y, player1.getWidth(), player1.getHeight(), null);
+        }
+        if (player2 != null) {
+            g.drawImage(player2, p2X, p2Y, player2.getWidth(), player2.getHeight(), null);
+        }
+
     }
 
     public void setLocation(int playerNumber, int x, int y) {

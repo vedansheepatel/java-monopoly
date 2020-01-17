@@ -78,9 +78,8 @@ public class Board {
         }
         return p;
     }
-
-    
-
+ 
+   
     public int getPrice(int position) {
         Property p = (Property) locations[position];
         if (locations[position] instanceof Property) {
