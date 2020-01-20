@@ -310,12 +310,12 @@ public class Screen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, player1.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
             player1.takeMoney(200);
             player1ShowBalance.setText("" + player1.getBalance());
-            turn = false;
+            turn = !turn;
         }
         if (board.getName(player2.getCurrentPosition()).contains("Tax")) {
             JOptionPane.showMessageDialog(null, player2.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
             player2.takeMoney(200);
-            turn = true;
+            turn = !turn;
             player2ShowBalance.setText("" + player2.getBalance());
         }
         //if they players land on go to jail sqaure they are moved to the jail square
@@ -404,6 +404,7 @@ public class Screen extends javax.swing.JFrame {
 
     private void mortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mortgageActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_mortgageActionPerformed
 
     /**

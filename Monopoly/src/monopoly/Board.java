@@ -58,19 +58,36 @@ public class Board {
         locations[39] = new Property("BoardWalk", 640, 570, 400, 50, false, false);
 
     }
-
+    /**
+    * get the X position of the square
+    * @param position of the player according to the board
+    * @return the x position of the location in board
+    */
     public int getX(int position) {
         return locations[position].getPositionX();
     }
 
+    /**
+     * get the Y position of the square
+     * @param position of the player
+     * @return the y position of the location in the board array
+     */
     public int getY(int position) {
         return locations[position].getPositionY();
     }
-
+    /**
+     * get the name of the square the player is on
+     * @param position of the player
+     * @return the name of the location the player is on
+     */
     public String getName(int position) {
         return locations[position].getName();
     }
-
+    /**
+     * 
+     * @param position
+     * @return 
+     */
     public Property getProperty(int position) {
         Property p = (Property) locations[position];
         if (locations[position] instanceof Property) {
@@ -79,7 +96,11 @@ public class Board {
         return p;
     }
  
-   
+   /**
+    * 
+    * @param position
+    * @return 
+    */
     public int getPrice(int position) {
         Property p = (Property) locations[position];
         if (locations[position] instanceof Property) {
@@ -90,7 +111,11 @@ public class Board {
         }
         return p.getPrice();
     }
-
+    /**
+    * 
+    * @param position
+    * @return the rent of the property the player is on
+    */
     public int getRent(int position) {
         Property p = (Property) locations[position];
         if (locations[position] instanceof Property) {
