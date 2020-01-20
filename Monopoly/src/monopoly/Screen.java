@@ -58,6 +58,7 @@ public class Screen extends javax.swing.JFrame {
         numOfProperties2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         showPlayer2Properties = new javax.swing.JTextArea();
+        mortgage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,25 +139,21 @@ public class Screen extends javax.swing.JFrame {
         showPlayer2Properties.setRows(5);
         jScrollPane2.setViewportView(showPlayer2Properties);
 
+        mortgage.setText("Mortgage");
+        mortgage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mortgageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(51, 51, 51)
-                                .addComponent(viewInformation)))
-                        .addGap(18, 18, 18)
-                        .addComponent(buy, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
@@ -171,23 +168,40 @@ public class Screen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(player2ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(numOfProperties2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(player2BalanceTitle)))))
+                            .addComponent(player2BalanceTitle)
+                            .addComponent(player2ShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(viewInformation)
+                                .addGap(18, 18, 18)
+                                .addComponent(buy, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addComponent(mortgage)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
+                    .addComponent(dieFace, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(viewInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buy, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(73, 73, 73)
+                        .addComponent(buy, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(viewInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(mortgage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(player1BalanceTitle)
                     .addComponent(player2BalanceTitle))
@@ -198,8 +212,7 @@ public class Screen extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(numOfProperties2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(numOfProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(numOfProperties1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,7 +304,8 @@ public class Screen extends javax.swing.JFrame {
                 }
                 break;
         }
-
+        
+        //if players land on the tax sqaure, they have to pay $200 to the bamk
         if (board.getName(player1.getCurrentPosition()).contains("Tax")) {
             JOptionPane.showMessageDialog(null, player1.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
             player1.takeMoney(200);
@@ -304,19 +318,18 @@ public class Screen extends javax.swing.JFrame {
             turn = true;
             player2ShowBalance.setText("" + player2.getBalance());
         }
+        //if they players land on go to jail sqaure they are moved to the jail square
         if (board.getName(player1.getCurrentPosition()).equals("Go To Jail")) {
             JOptionPane.showMessageDialog(null, player1.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(1, board.getX(10), board.getY(10));
             player1.setPosition(10);
-
         }
         if (board.getName(player2.getCurrentPosition()).equals("Go To Jail")) {
             JOptionPane.showMessageDialog(null, player2.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(2, board.getX(10), board.getY(10));
             player2.setPosition(10);
-           
-        }
-
+           }
+        //if a player lands on a property owned by the opponent, they have to pay the listed rent of that property
         if (board.getName(player2.getCurrentPosition()).equals(player1.findProperty(board.getName(player2.getCurrentPosition())))) {
             JOptionPane.showMessageDialog(null, player2.getName() + " has to pay rent to " + player1.getName());
             player2.takeMoney(board.getRent(player2.getCurrentPosition()));
@@ -332,7 +345,7 @@ public class Screen extends javax.swing.JFrame {
             player1ShowBalance.setText("" + player1.getBalance());
             player2ShowBalance.setText("" + player2.getBalance());
             turn = !turn;
-
+    
         }
         this.repaint();
 
@@ -389,6 +402,10 @@ public class Screen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numOfProperties2ActionPerformed
 
+    private void mortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mortgageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mortgageActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,6 +448,7 @@ public class Screen extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton mortgage;
     private javax.swing.JTextField numOfProperties1;
     private javax.swing.JTextField numOfProperties2;
     private javax.swing.JLabel player1BalanceTitle;
