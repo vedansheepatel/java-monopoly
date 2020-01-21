@@ -15,7 +15,7 @@ public class Property extends Location {
     private int rent;
     boolean isOwned;
     private Player owner;
-    private boolean isMortgaged;
+    boolean isMortgaged;
      
     public Property(String name, int positionX, int positionY, int price, int rent, boolean isOwned, boolean isMortgaged) {
         super(name, positionX, positionY);
@@ -43,5 +43,7 @@ public class Property extends Location {
     public boolean isMortgaged(){
         return isMortgaged;
     }
+    
+    
 
 }
