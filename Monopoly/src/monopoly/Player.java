@@ -52,13 +52,9 @@ public class Player {
     public int getCurrentPosition() {
         return this.position;
     }
-    public void mortgage(Property p, int price){
-        if (p.isMortgaged == false){
+    public void mortgage(int price){
             balance = balance + (price/2);
-            p.isMortgaged = true;
-        }else{
-            JOptionPane.showMessageDialog(null, "This property is already mortgaged");
-        }
+
     }
 
     public void addProperty(Property p, int price) {
@@ -91,7 +87,14 @@ public class Player {
        }
       return null;
   }
-    
+    public int findPropertyPrice (String name){
+       for (Property p : this.allProperties){
+           if (p.getName().equals(name)){
+               return p.getPrice();
+          }
+       }
+      return 0;
+  }
 
     public ArrayList<Property> getProperties() {
         return this.allProperties;

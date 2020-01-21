@@ -95,9 +95,7 @@ public class Board {
         }
         return p;
     }
-   public int getMortgage (Property p){
-       return p.getPrice();
-   }
+   
  
    /**
     * 

@@ -14,9 +14,9 @@ import javax.swing.JOptionPane;
 public class Screen extends javax.swing.JFrame {
 
     private Die die;
-     Player player1;
-    Player player2;
-     Board board;
+    private Player player1;
+    private Player player2;
+     private Board board;
     int x = 100;
     boolean turn;
 
@@ -383,6 +383,7 @@ public class Screen extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, board.getName(player2.getCurrentPosition()) + "\n Price: $" + board.getPrice(player2.getCurrentPosition()) + "\n Rent: $" + board.getRent(player2.getCurrentPosition()) * die.getFace());
             }
         }
+      
     }//GEN-LAST:event_viewInformationActionPerformed
 
     private void player1ShowBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player1ShowBalanceActionPerformed
@@ -406,15 +407,15 @@ public class Screen extends javax.swing.JFrame {
         // TODO add your handling code here:
         Mortgage m = new Mortgage();
         m.setVisible(true);
-        if (turn){
-        if (m.mortgagedProperty.equals(player1.findProperty(m.mortgagedProperty))){
-            player1.mortgage(player1.findPropertyP(m.mortgagedProperty), board.getMortgage(player1.findPropertyP(m.mortgagedProperty)));
+        if (turn && m.mortgagedProperty.equals(player1.findProperty(m.mortgagedProperty))){
+            player1.mortgage(player1.findPropertyPrice(m.mortgagedProperty));
             player1ShowBalance.setText("" + player1.getBalance());
+            
         }else{
             JOptionPane.showMessageDialog(null, "it is not ur turn");
+     
         }
-        
-        }
+        player1ShowBalance.setText("" + player1.getBalance());
              
     }//GEN-LAST:event_mortgageActionPerformed
 

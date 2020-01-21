@@ -11,16 +11,16 @@ import javax.swing.JFrame;
  *
  * @author patev6618
  */
-public class Mortgage extends javax.swing.JFrame {
- String mortgagedProperty;
-Screen s = new Screen();
+public class Mortgage extends javax.swing.JFrame{
+
+    Screen s = new Screen ();
 
     /**
      * Creates new form Mortgage
      */
     public Mortgage() {
         initComponents();
-        this.mortgagedProperty = "";
+       
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         heading.setText("You can mortgage an owned property");
         instructions.setText("By doing so, you will recieve half of the price of your property from the bank.");
@@ -114,21 +114,16 @@ Screen s = new Screen();
       
 
     }//GEN-LAST:event_mortgagePropertyActionPerformed
-
+String mortgagedProperty = "";
     private void confirmMortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmMortgageActionPerformed
         // TODO add your handling code here:
-         mortgagedProperty = mortgageProperty.getText();
-//         if (s.turn){
-//             if (mortgagedProperty.equals(s.player1.findProperty(mortgagedProperty))){
-//            s.player1.mortgage(s.player1.findPropertyP(mortgagedProperty), s.board.getMortgage(s.player1.findPropertyP(mortgagedProperty)));
-//            s.player1ShowBalance.setText("" + s.player1.getBalance());
-//        }
+      mortgagedProperty = mortgageProperty.getText();
+//         if (s.turn && mortgagedProperty.equals(s.player1.findProperty(mortgagedProperty))){
+//            s.player1.mortgage(s.player1.findPropertyPrice(mortgagedProperty));
+//
 //         }
-         
     }//GEN-LAST:event_confirmMortgageActionPerformed
-   public String inputedProperty(){
-       return mortgagedProperty;
-   }
+   
     /**
      * @param args the command line arguments
      */
