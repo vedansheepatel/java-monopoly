@@ -16,15 +16,16 @@ public class Screen extends javax.swing.JFrame {
     private Die die;
     private Player player1;
     private Player player2;
-     private Board board;
+    private Board board;
     int x = 100;
     boolean turn;
-
+    private Screen s;
     /**
      * Creates new form Screen
      */
     public Screen() {
         initComponents();
+        this.s = s;
         board = new Board();
         player1 = new Player("Bob", 1500, 0, true);
         player2 = new Player("Billy", 1500, 0, false);
@@ -34,8 +35,7 @@ public class Screen extends javax.swing.JFrame {
         player2BalanceTitle.setText(player2.getName() + "'s Balance:");
     }
   
-    
-
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -239,6 +239,7 @@ public class Screen extends javax.swing.JFrame {
                     turn = true;
                     player1.add1(die);
                     this.boardPanel1.setLocation(1, board.getX(player1.getCurrentPosition()), board.getY(player1.getCurrentPosition()));
+              
                 } else {
                     turn = false;
                     player2.add1(die);
@@ -310,6 +311,7 @@ public class Screen extends javax.swing.JFrame {
         
         //if players land on the tax sqaure, they have to pay $200 to the bamk
         if (board.getName(player1.getCurrentPosition()).contains("Tax")) {
+          
             JOptionPane.showMessageDialog(null, player1.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
             player1.takeMoney(200);
             player1ShowBalance.setText("" + player1.getBalance());
@@ -336,12 +338,14 @@ public class Screen extends javax.swing.JFrame {
            }
         //if a player lands on a property owned by the opponent, they have to pay the listed rent of that property
         if (board.getName(player2.getCurrentPosition()).equals(player1.findProperty(board.getName(player2.getCurrentPosition())))) {
+            if (player1.findPropertyP(board.getName(player2.getCurrentPosition())).isMortgaged == false){
             JOptionPane.showMessageDialog(null, player2.getName() + " has to pay rent to " + player1.getName());
             player2.takeMoney(board.getRent(player2.getCurrentPosition()));
             player1.addMoney(board.getRent(player2.getCurrentPosition()));
             player1ShowBalance.setText("" + player1.getBalance());
             player2ShowBalance.setText("" + player2.getBalance());
             turn = !turn;
+            }
         }
         if (board.getName(player1.getCurrentPosition()).equals(player2.findProperty(board.getName(player1.getCurrentPosition())))) {
             JOptionPane.showMessageDialog(null, player1.getName() + " has to pay rent to " + player2.getName());
@@ -413,9 +417,14 @@ public class Screen extends javax.swing.JFrame {
         Mortgage m = new Mortgage(player1);
         m.setVisible(true);
     }//GEN-LAST:event_mortgageActionPerformed
-public javax.swing.JTextField getbalance(){
-    return player1ShowBalance;
-}
+
+    public javax.swing.JTextField getIt(){
+        return player1ShowBalance;
+    }
+    public boolean getTurn(){
+        return turn;
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class Mortgage extends javax.swing.JFrame{
 
-  Screen s = new Screen();
+ 
     private String mortgagedProperty;
     private Player player1;
-    
+    private Screen s;
   
 //    private String player1ShowBalance;
 //    private Screen s;
@@ -36,6 +36,7 @@ public class Mortgage extends javax.swing.JFrame{
   public Mortgage(Player player1) {
         initComponents();
        this.player1 = player1;
+      
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         heading.setText("You can mortgage an owned property");
         instructions.setText("By doing so, you will recieve half of the price of your property from the bank.");
@@ -130,13 +131,13 @@ public class Mortgage extends javax.swing.JFrame{
 
     private void confirmMortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmMortgageActionPerformed
         // TODO add your handling code here:
-   
      mortgagedProperty = mortgageProperty.getText();
+
      if (mortgagedProperty.equals(player1.findProperty(mortgagedProperty))){
-        player1.mortgage(player1.findPropertyPrice(mortgagedProperty));
-     s.getbalance().setText("" + player1.getBalance());
+        player1.mortgage(player1.findPropertyP(mortgagedProperty),player1.findPropertyPrice(mortgagedProperty));
+       
     }//GEN-LAST:event_confirmMortgageActionPerformed
-  
+     
     }
     public int returnPrice(){
        return player1.getBalance();

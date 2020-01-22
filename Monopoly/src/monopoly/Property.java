@@ -21,7 +21,7 @@ public class Property extends Location {
         super(name, positionX, positionY);
         this.price = price;
         this.rent = rent;
-
+        this.isMortgaged = false;
     }
     @Override
     public String toString(){
