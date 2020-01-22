@@ -53,8 +53,7 @@ public class Player {
         return this.position;
     }
     public void mortgage(int price){
-            balance = balance + (price/2);
-
+            balance = balance + (price/2); 
     }
 
     public void addProperty(Property p, int price) {

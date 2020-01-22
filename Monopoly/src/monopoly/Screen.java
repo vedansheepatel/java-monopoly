@@ -29,10 +29,13 @@ public class Screen extends javax.swing.JFrame {
         player1 = new Player("Bob", 1500, 0, true);
         player2 = new Player("Billy", 1500, 0, false);
         die = new Die();
-
+        
         player1BalanceTitle.setText(player1.getName() + "'s Balance:");
         player2BalanceTitle.setText(player2.getName() + "'s Balance:");
     }
+  
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -323,11 +326,13 @@ public class Screen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, player1.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(1, board.getX(10), board.getY(10));
             player1.setPosition(10);
+            
         }
         if (board.getName(player2.getCurrentPosition()).equals("Go To Jail")) {
             JOptionPane.showMessageDialog(null, player2.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(2, board.getX(10), board.getY(10));
             player2.setPosition(10);
+            
            }
         //if a player lands on a property owned by the opponent, they have to pay the listed rent of that property
         if (board.getName(player2.getCurrentPosition()).equals(player1.findProperty(board.getName(player2.getCurrentPosition())))) {
@@ -405,20 +410,12 @@ public class Screen extends javax.swing.JFrame {
 
     private void mortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mortgageActionPerformed
         // TODO add your handling code here:
-        Mortgage m = new Mortgage();
+        Mortgage m = new Mortgage(player1);
         m.setVisible(true);
-        if (turn && m.mortgagedProperty.equals(player1.findProperty(m.mortgagedProperty))){
-            player1.mortgage(player1.findPropertyPrice(m.mortgagedProperty));
-            player1ShowBalance.setText("" + player1.getBalance());
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "it is not ur turn");
-     
-        }
-        player1ShowBalance.setText("" + player1.getBalance());
-             
     }//GEN-LAST:event_mortgageActionPerformed
-
+public javax.swing.JTextField getbalance(){
+    return player1ShowBalance;
+}
     /**
      * @param args the command line arguments
      */

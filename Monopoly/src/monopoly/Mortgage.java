@@ -6,6 +6,7 @@
 package monopoly;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +14,13 @@ import javax.swing.JFrame;
  */
 public class Mortgage extends javax.swing.JFrame{
 
-    Screen s = new Screen ();
-
+  Screen s = new Screen();
+    private String mortgagedProperty;
+    private Player player1;
+    
+  
+//    private String player1ShowBalance;
+//    private Screen s;
     /**
      * Creates new form Mortgage
      */
@@ -27,7 +33,16 @@ public class Mortgage extends javax.swing.JFrame{
         warning.setText("but will not be able to collect rent from that property");
         questionInput.setText("What property would you like to mortgage?");
     }
-
+  public Mortgage(Player player1) {
+        initComponents();
+       this.player1 = player1;
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        heading.setText("You can mortgage an owned property");
+        instructions.setText("By doing so, you will recieve half of the price of your property from the bank.");
+        warning.setText("but will not be able to collect rent from that property");
+        questionInput.setText("What property would you like to mortgage?");
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,19 +126,21 @@ public class Mortgage extends javax.swing.JFrame{
 
     private void mortgagePropertyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mortgagePropertyActionPerformed
         // TODO add your handling code here:
-      
-
     }//GEN-LAST:event_mortgagePropertyActionPerformed
-String mortgagedProperty = "";
+
     private void confirmMortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmMortgageActionPerformed
         // TODO add your handling code here:
-      mortgagedProperty = mortgageProperty.getText();
-//         if (s.turn && mortgagedProperty.equals(s.player1.findProperty(mortgagedProperty))){
-//            s.player1.mortgage(s.player1.findPropertyPrice(mortgagedProperty));
-//
-//         }
-    }//GEN-LAST:event_confirmMortgageActionPerformed
    
+     mortgagedProperty = mortgageProperty.getText();
+     if (mortgagedProperty.equals(player1.findProperty(mortgagedProperty))){
+        player1.mortgage(player1.findPropertyPrice(mortgagedProperty));
+     s.getbalance().setText("" + player1.getBalance());
+    }//GEN-LAST:event_confirmMortgageActionPerformed
+  
+    }
+    public int returnPrice(){
+       return player1.getBalance();
+   }
     /**
      * @param args the command line arguments
      */
