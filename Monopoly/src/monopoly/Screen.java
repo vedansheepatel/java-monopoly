@@ -13,19 +13,19 @@ import javax.swing.JOptionPane;
  */
 public class Screen extends javax.swing.JFrame {
 
+   //instance varibles
     private Die die;
     private Player player1;
     private Player player2;
     private Board board;
-    int x = 100;
-    boolean turn;
-    private Screen s;
+    private boolean turn;
+    
     /**
      * Creates new form Screen
      */
     public Screen() {
         initComponents();
-        this.s = s;
+        
         board = new Board();
         player1 = new Player("Bob", 1500, 0, true);
         player2 = new Player("Billy", 1500, 0, false);
@@ -241,14 +241,19 @@ public class Screen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //if player's balane is less than zero, recomend mortgaging some properties
         if (player1.getBalance() <= 0){
             JOptionPane.showMessageDialog(null, "You do not have money, consider mortgaging your properties");
         }
         if (player2.getBalance() <= 0){
             JOptionPane.showMessageDialog(null, "You do not have money, consider mortgaging your properties");
         }
-player1ShowBalance.setText("" + player1.getBalance());
-player2ShowBalance.setText("" + player2.getBalance());
+        //show players balance from the start 
+        player1ShowBalance.setText("" + player1.getBalance());
+        player2ShowBalance.setText("" + player2.getBalance());
+        
+        //switch player turns each time dice is rolled
+        //depending on the number rolled move the player
         switch (this.die.getFace()) {
             case 1:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 1.gif"));
@@ -379,7 +384,8 @@ player2ShowBalance.setText("" + player2.getBalance());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void buyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyActionPerformed
-
+        
+        //if it is the players turn, purchase the property and update balance, arraylist, and numOfProperty on screen
         if (turn) {
             player1.addProperty(board.getProperty(player1.getCurrentPosition()), board.getPrice(player1.getCurrentPosition()));
             player1ShowBalance.setText("" + player1.getBalance());
@@ -396,6 +402,7 @@ player2ShowBalance.setText("" + player2.getBalance());
 
     private void viewInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewInformationActionPerformed
         // TODO add your handling code here:
+        //depending on the players turn, get the players position and show information of the sqaure
         if (turn) {
             if (board.getName(player1.getCurrentPosition()).contains("Avenue") || board.getName(player1.getCurrentPosition()).contains("Railroad") || board.getName(player1.getCurrentPosition()).contains("Gardens") || board.getName(player1.getCurrentPosition()).contains("Place")) {
                 JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition()));
@@ -435,7 +442,7 @@ player2ShowBalance.setText("" + player2.getBalance());
     }//GEN-LAST:event_numOfProperties2ActionPerformed
 
     private void mortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mortgageActionPerformed
-        
+        // show mortgage screen and pass in the player acording to the turn
         if (!turn){
         Mortgage m = new Mortgage(player1);
         m.setVisible(true);

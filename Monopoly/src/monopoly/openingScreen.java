@@ -9,7 +9,7 @@ import java.awt.Color;
 
 /**
  *
- * @author dhshp
+ * @author patev6618
  */
 public class openingScreen extends javax.swing.JFrame {
  
@@ -200,6 +200,7 @@ public class openingScreen extends javax.swing.JFrame {
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
         // TODO add your handling code here:
+        //open game's main screen 
         Screen s = new Screen();
         s.setVisible(true);
     }//GEN-LAST:event_startGameActionPerformed

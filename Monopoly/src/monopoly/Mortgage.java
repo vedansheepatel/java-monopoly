@@ -16,33 +16,24 @@ public class Mortgage extends javax.swing.JFrame{
 
     //instance variables 
     private String mortgagedProperty;
-    private Player player1;
-   
-    
-    
+    private Player player;
   
-//    private String player1ShowBalance;
-//    private Screen s;
     /**
      * Creates new form Mortgage
      */
     public Mortgage() {
         initComponents();
-       
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        heading.setText("You can mortgage an owned property");
-        instructions.setText("By doing so, you will recieve half of the price of your property from the bank");
-        warning.setText("but will not be able to collect rent from that property");
-        questionInput.setText("What property would you like to mortgage?");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   
+        
     }
-  public Mortgage(Player player1) {
+    /**
+     * create constructor that passes in player class
+     * @param player 
+     */
+  public Mortgage(Player player) {
         initComponents();
-       this.player1 = player1;
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        heading.setText("You can mortgage an owned property");
-        instructions.setText("By doing so, you will recieve half of the price of your property from the bank.");
-        warning.setText("but will not be able to collect rent from that property");
-        questionInput.setText("What property would you like to mortgage?");
+       this.player = player;
+       this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
     }
   
     /**
@@ -54,44 +45,46 @@ public class Mortgage extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        heading = new javax.swing.JLabel();
-        instructions = new javax.swing.JLabel();
-        warning = new javax.swing.JLabel();
         questionInput = new javax.swing.JLabel();
         mortgageProperty = new javax.swing.JTextField();
         confirmMortgage = new javax.swing.JButton();
         takeawayMortgage = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 51));
 
-        heading.setText("jLabel1");
+        questionInput.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        questionInput.setText("Write the name of the property you would like to mortgage or take out of mortgage");
 
-        instructions.setText("jLabel1");
-
-        warning.setText("jLabel1");
-
-        questionInput.setText("jLabel1");
-
-        mortgageProperty.setText("Enter Property Name");
         mortgageProperty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mortgagePropertyActionPerformed(evt);
             }
         });
 
-        confirmMortgage.setText("Mortgage it");
+        confirmMortgage.setFont(new java.awt.Font("Roboto Mono", 1, 18)); // NOI18N
+        confirmMortgage.setText("Mortgage ");
         confirmMortgage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmMortgageActionPerformed(evt);
             }
         });
 
+        takeawayMortgage.setFont(new java.awt.Font("Roboto Mono", 1, 18)); // NOI18N
         takeawayMortgage.setText("Unmortgage");
         takeawayMortgage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 takeawayMortgageActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Then click the appropriate button to carry out the action ");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 12)); // NOI18N
+        jLabel2.setText("Enter Property Name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,38 +94,36 @@ public class Mortgage extends javax.swing.JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(instructions)
-                            .addComponent(heading)
-                            .addComponent(warning)
-                            .addComponent(questionInput)))
+                        .addComponent(questionInput))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(mortgageProperty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mortgageProperty, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(confirmMortgage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(takeawayMortgage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(101, Short.MAX_VALUE))
+                            .addComponent(takeawayMortgage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(heading)
-                .addGap(18, 18, 18)
-                .addComponent(instructions)
-                .addGap(18, 18, 18)
-                .addComponent(warning)
-                .addGap(44, 44, 44)
+                .addGap(103, 103, 103)
                 .addComponent(questionInput)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mortgageProperty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(confirmMortgage))
-                .addGap(49, 49, 49)
-                .addComponent(takeawayMortgage)
-                .addContainerGap(93, Short.MAX_VALUE))
+                    .addComponent(mortgageProperty, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confirmMortgage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(42, 42, 42)
+                .addComponent(takeawayMortgage, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,9 +135,11 @@ public class Mortgage extends javax.swing.JFrame{
 
     private void confirmMortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmMortgageActionPerformed
         // TODO add your handling code here:
+        //if the inputed property name is in the player's list of owned properties
+        //carry out mortgaging action
      mortgagedProperty = mortgageProperty.getText();
-     if (player1.findProperty(mortgagedProperty).equals(mortgagedProperty)){
-        player1.mortgage(player1.findPropertyP(mortgagedProperty),player1.findPropertyP(mortgagedProperty).getPrice());
+     if (player.findProperty(mortgagedProperty).equals(mortgagedProperty)){
+        player.mortgage(player.findPropertyP(mortgagedProperty),player.findPropertyP(mortgagedProperty).getPrice());
      }else{
          JOptionPane.showMessageDialog(null, "You do not own this property");
      }
@@ -155,9 +148,11 @@ public class Mortgage extends javax.swing.JFrame{
 
     private void takeawayMortgageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeawayMortgageActionPerformed
         // TODO add your handling code here:
+        //if the inputed property name is in the player's list of owned properties
+        //carry out take out of mortgaging action
         mortgagedProperty = mortgageProperty.getText();
-        if (player1.findProperty(mortgagedProperty).equals(mortgagedProperty)){
-        player1.removeMortgage(player1.findPropertyP(mortgagedProperty),player1.findPropertyP(mortgagedProperty).getPrice());
+        if (player.findProperty(mortgagedProperty).equals(mortgagedProperty)){
+        player.removeMortgage(player.findPropertyP(mortgagedProperty),player.findPropertyP(mortgagedProperty).getPrice());
      }else{
          JOptionPane.showMessageDialog(null, "You do not own this property");
      }
@@ -204,11 +199,10 @@ public class Mortgage extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmMortgage;
-    private javax.swing.JLabel heading;
-    private javax.swing.JLabel instructions;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField mortgageProperty;
     private javax.swing.JLabel questionInput;
     private javax.swing.JButton takeawayMortgage;
-    private javax.swing.JLabel warning;
     // End of variables declaration//GEN-END:variables
 }
