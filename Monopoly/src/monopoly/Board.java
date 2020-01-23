@@ -17,15 +17,15 @@ public class Board {
         //name, x, y, price, rent, isOwned
 
         locations[0] = new GoSqaure("Go", 650, 650);
-        locations[1] = new Property("Mediteranean Avenue", 575, 650, 60, 2, false);
-        locations[2] = new communityChest("Community Chest", 520, 650);
-        locations[3] = new Property("Baltic Avenue", 465, 650, 80, 4, false);
-        locations[4] = new IncomeTax("IncomeTax", 410, 650);
-        locations[5] = new Property("Reading Railroad", 355, 650, 200, 25, false);
-        locations[6] = new Property("Oriental Avenue", 300, 650, 100, 6, false);
-        locations[7] = new chance("Chance", 245, 650);
-        locations[8] = new Property("Vermont Avenue", 180, 650, 100, 6, false);
-        locations[9] = new Property("Connecticut Avenue", 105, 640, 120, 8, false);
+        locations[1] = new Property("Mediteranean Avenue", 555, 650, 60, 2, false);
+        locations[2] = new communityChest("Community Chest", 500, 650);
+        locations[3] = new Property("Baltic Avenue", 445, 650, 80, 4, false);
+        locations[4] = new IncomeTax("IncomeTax", 390, 650);
+        locations[5] = new Property("Reading Railroad", 335, 650, 200, 25, false);
+        locations[6] = new Property("Oriental Avenue", 280, 650, 100, 6, false);
+        locations[7] = new chance("Chance", 220, 650);
+        locations[8] = new Property("Vermont Avenue", 160, 650, 100, 6, false);
+        locations[9] = new Property("Connecticut Avenue", 100, 640, 120, 8, false);
         locations[10] = new Jail("Jail", 45, 650);
         locations[11] = new Property("St.Charles Place", 45, 575, 140, 10, false);
         locations[12] = new Property("Electricity Company", 45, 515, 150, 4, false);

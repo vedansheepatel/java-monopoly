@@ -240,7 +240,6 @@ public class Screen extends javax.swing.JFrame {
                     player2.add2(die);
                     this.boardPanel1.setLocation(2, board.getX(player2.getCurrentPosition()), board.getY(player2.getCurrentPosition()));
                 }
-
                 break;
             case 3:
                 dieFace.setIcon(new javax.swing.ImageIcon("Dice 3.png"));
@@ -291,18 +290,19 @@ public class Screen extends javax.swing.JFrame {
                 }
                 break;
         }
-
-        if (board.getName(player1.getCurrentPosition()).contains("Tax")) {
-            JOptionPane.showMessageDialog(null, player1.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
-            player1.takeMoney(200);
-            player1ShowBalance.setText("" + player1.getBalance());
-            turn = false;
+        if (turn) {
+            if (board.getName(player1.getCurrentPosition()).contains("Tax")) {
+                JOptionPane.showMessageDialog(null, player1.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
+                player1.takeMoney(200);
+                player1ShowBalance.setText("" + player1.getBalance());
+            }
         }
-        if (board.getName(player2.getCurrentPosition()).contains("Tax")) {
-            JOptionPane.showMessageDialog(null, player2.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
-            player2.takeMoney(200);
-            turn = true;
-            player2ShowBalance.setText("" + player2.getBalance());
+        if (!turn) {
+            if (board.getName(player2.getCurrentPosition()).contains("Tax")) {
+                JOptionPane.showMessageDialog(null, player2.getName() + " has landed on a Tax Sqaure. Paying $200 to bank.");
+                player2.takeMoney(200);
+                player2ShowBalance.setText("" + player2.getBalance());
+            }
         }
         if (board.getName(player1.getCurrentPosition()).equals("Go To Jail")) {
             JOptionPane.showMessageDialog(null, player1.getName() + " has to go to Jail. Bye bye");
@@ -314,9 +314,8 @@ public class Screen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, player2.getName() + " has to go to Jail. Bye bye");
             this.boardPanel1.setLocation(2, board.getX(10), board.getY(10));
             player2.setPosition(10);
-           
-        }
 
+        }
         if (board.getName(player2.getCurrentPosition()).equals(player1.findProperty(board.getName(player2.getCurrentPosition())))) {
             JOptionPane.showMessageDialog(null, player2.getName() + " has to pay rent to " + player1.getName());
             player2.takeMoney(board.getRent(player2.getCurrentPosition()));
@@ -334,6 +333,7 @@ public class Screen extends javax.swing.JFrame {
             turn = !turn;
 
         }
+
         this.repaint();
 
     }//GEN-LAST:event_jButton1ActionPerformed
