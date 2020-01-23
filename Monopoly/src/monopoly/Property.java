@@ -15,12 +15,13 @@ public class Property extends Location {
     private int rent;
     boolean isOwned;
     private Player owner;
+    boolean isMortgaged;
      
-    public Property(String name, int positionX, int positionY, int price, int rent, boolean isOwned) {
+    public Property(String name, int positionX, int positionY, int price, int rent, boolean isOwned, boolean isMortgaged) {
         super(name, positionX, positionY);
         this.price = price;
         this.rent = rent;
-
+        this.isMortgaged = false;
     }
     @Override
     public String toString(){
@@ -33,12 +34,16 @@ public class Property extends Location {
     }
 
     public int getRent() {
-     
         return rent;
     }
 
     public boolean isOwned() {
         return isOwned;
     }
+    public boolean isMortgaged(){
+        return isMortgaged;
+    }
+    
+    
 
 }
