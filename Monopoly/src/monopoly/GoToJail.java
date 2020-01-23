@@ -11,6 +11,12 @@ package monopoly;
  */
 public class GoToJail extends Location {
 
+    /**
+     * 
+     * @param name of this square
+     * @param positionX of this specific square on the board
+     * @param positionY of this specific square on the board
+     */
     public GoToJail(String name, int positionX, int positionY) {
         super(name, positionX, positionY);
 

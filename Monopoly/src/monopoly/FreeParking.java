@@ -12,16 +12,14 @@ package monopoly;
 public class FreeParking extends Location {
 
     /**
-     *
-     * @param name
-     * @param positionX
-     * @param positionY
+     *Create free parking square 
+     * @param name of the square
+     * @param positionX of this specific square on the board
+     * @param positionY of this specific square on the board
      */
     public FreeParking(String name, int positionX, int positionY) {
         super(name, positionX, positionY);
     }
 
-    public String PrintToScreen() {
-        return "You are using the Free Parking service";
-    }
+
 }

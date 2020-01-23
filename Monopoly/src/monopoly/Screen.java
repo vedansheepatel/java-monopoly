@@ -62,6 +62,7 @@ public class Screen extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         showPlayer2Properties = new javax.swing.JTextArea();
         mortgage = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,6 +150,9 @@ public class Screen extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("H:\\Downloads\\monopoly picture.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,7 +193,11 @@ public class Screen extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(102, 102, 102)
                                 .addComponent(mortgage)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,10 +228,12 @@ public class Screen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(boardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 124, Short.MAX_VALUE))
+                .addGap(0, 115, Short.MAX_VALUE))
         );
 
         pack();
@@ -391,6 +401,8 @@ player2ShowBalance.setText("" + player2.getBalance());
                 JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition()));
             } else if (board.getName(player1.getCurrentPosition()).equals("Electricity Company") || board.getName(player1.getCurrentPosition()).equals("Water Works")) {
                 JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition()) + "\n Price: $" + board.getPrice(player1.getCurrentPosition()) + "\n Rent: $" + board.getRent(player1.getCurrentPosition()) * die.getFace());
+            }else{
+               JOptionPane.showMessageDialog(null, board.getName(player1.getCurrentPosition())); 
             }
         }
         if (!turn) {
@@ -398,6 +410,8 @@ player2ShowBalance.setText("" + player2.getBalance());
                 JOptionPane.showMessageDialog(null, board.getName(player2.getCurrentPosition()) + "\n Price: $" + board.getPrice(player2.getCurrentPosition()) + "\n Rent: $" + board.getRent(player2.getCurrentPosition()));
             } else if (board.getName(player2.getCurrentPosition()).equals("Electricity Company") || board.getName(player2.getCurrentPosition()).equals("Water Works")) {
                 JOptionPane.showMessageDialog(null, board.getName(player2.getCurrentPosition()) + "\n Price: $" + board.getPrice(player2.getCurrentPosition()) + "\n Rent: $" + board.getRent(player2.getCurrentPosition()) * die.getFace());
+            }else{
+               JOptionPane.showMessageDialog(null, board.getName(player2.getCurrentPosition())); 
             }
         }
       
@@ -475,6 +489,7 @@ player2ShowBalance.setText("" + player2.getBalance());
     private javax.swing.JButton buy;
     private javax.swing.JLabel dieFace;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton mortgage;

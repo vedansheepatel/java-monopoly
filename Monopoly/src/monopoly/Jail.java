@@ -10,12 +10,16 @@ package monopoly;
  * @author patev6618
  */
 public class Jail extends Location {
+    /**
+     * 
+     * @param name of this square
+     * @param positionX of this specific square on the board
+     * @param positionY of this specific square on the board
+     */
 
     public Jail(String name, int positionX, int positionY) {
         super(name, positionX, positionY);
     }
 
-    public String printToScreen() {
-        return "You are at the Jail Sqaure";
-    }
+  
 }

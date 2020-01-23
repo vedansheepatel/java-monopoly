@@ -12,12 +12,12 @@ package monopoly;
 public class Location {
 
     //make a super class for all possible locations on the board 
-    //all locations have a name and board number assosicated with them
+    //all locations have a name, X position and Y position assosicated with them
     private String name;
     private int positionX;
     private int positionY;
 
-    //
+    //constructor of the super class
     public Location(String name, int positionX, int positionY) {
         this.name = name;
         this.positionX = positionX;
@@ -25,14 +25,18 @@ public class Location {
     }
 
     /**
-     * Get the Locations board number
+     * Get the Locations X position
      *
-     * @return the number
+     * @return the X position number
      */
     public int getPositionX() {
         return positionX;
     }
-
+    /**
+     * Get the Locations Y position
+     *
+     * @return the Y position number
+     */
     public int getPositionY() {
         return positionY;
     }

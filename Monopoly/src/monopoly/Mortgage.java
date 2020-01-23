@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class Mortgage extends javax.swing.JFrame{
 
- 
+    //instance variables 
     private String mortgagedProperty;
     private Player player1;
-    private Player player2;
+   
     
     
   

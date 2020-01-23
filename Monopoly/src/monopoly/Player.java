@@ -13,15 +13,16 @@ import javax.swing.JOptionPane;
  * @author patev6618
  */
 public class Player {
-
+    //instance variables 
     private Board board;
     private String name;
     private double balance;
     private int position;
     private Property property;
-   boolean isTurn;
+    boolean isTurn;
     private ArrayList<Property> allProperties;
-
+//player constructor 
+    //name, balance, position, irTurn
     public Player(String name, double balance, int position, boolean isTurn) {
         this.name = name;
         this.balance = 1500.00;
@@ -29,29 +30,46 @@ public class Player {
         this.allProperties = new ArrayList<>();
         
     }
-    public boolean getTurn(){
-        return isTurn;
-    }
-    //public int getRoll(Die die){
-        //return die.getFace();
-    //}
+    
+    /**
+     * add to the balance of the player
+     * @param moneyAmount that is to be added
+     */
     public void addMoney(double moneyAmount) {
         this.balance = moneyAmount + balance;
     }
-
+ 
+    /**
+     * withdraw from the balance of the player
+     * @param moneyAmount that is to be withdrawn
+     */
     public void takeMoney(double moneyAmount) {
         if (balance > moneyAmount) {
             this.balance = balance - moneyAmount;
         }
     }
+     
+   /**
+    * set player to a specific position
+    * @param newPosition
+    * @return the new position of the player
+    */
     public int setPosition(int newPosition){
         position = newPosition;
         return position;
     }
-
+    /**
+    *get what position the player is in 
+    * @return the position of the player
+    */
     public int getCurrentPosition() {
         return this.position;
     }
+    /**
+     * mortgage a property
+     * @param p
+     * @param price 
+     */
     public void mortgage(Property p, int price){
         if (p.isMortgaged == false){
             JOptionPane.showMessageDialog(null, "You recieved $" + price/2 + " for mortgaging this property");
@@ -109,27 +127,61 @@ public class Player {
     }
 
     public void add1(Die die) {
-        position = (position + 1) % 40;
+        position = (position + 1);
+        if(position > 39){
+            position = position  % 40;
+            balance = balance + 200;
+            JOptionPane.showMessageDialog(null, "You have passed Go Sqaure! $200 recieved!");
+        }
     }
 
     public void add2(Die die) {
-        position = (position + 2) % 40;
+        position = (position + 2);
+        if(position > 39){
+            position = position  % 40;
+            balance = balance + 200;
+             JOptionPane.showMessageDialog(null, "You have passed Go Sqaure! $200 recieved!");
+        }
+
     }
 
     public void add3(Die die) {
-        position = (position + 3) % 40;
+        position = (position + 3);
+        if(position > 39){
+            position = position  % 40;
+            balance = balance + 200;
+             JOptionPane.showMessageDialog(null, "You have passed Go Sqaure! $200 recieved!");
+        }
+
     }
 
     public void add4(Die die) {
-        position = (position + 4) % 40;
+        position = (position + 4);
+        if(position > 39){
+            position = position  % 40;
+            balance = balance + 200;
+             JOptionPane.showMessageDialog(null, "You have passed Go Sqaure! $200 recieved!");
+        }
+
     }
 
     public void add5(Die die) {
-        position = (position + 5) % 40;
+        position = (position + 5);
+        if(position > 39){
+            position = position  % 40;
+            balance = balance + 200;
+             JOptionPane.showMessageDialog(null, "You have passed Go Sqaure! $200 recieved!");
+        }
+
     }
 
     public void add6(Die die) {
-        position = (position + 6) % 40;
+        position = (position + 6);
+        if(position > 39){
+            position = position  % 40;
+            balance = balance + 200;
+             JOptionPane.showMessageDialog(null, "You have passed Go Sqaure! $200 recieved!");
+        }
     }
 
 

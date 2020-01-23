@@ -17,6 +17,7 @@ import javax.swing.JPanel;
  */
 public class BoardPanel extends JPanel {
 
+    //instance variables
     private BufferedImage img;
     private BufferedImage player1;
     private BufferedImage player2;
@@ -25,6 +26,7 @@ public class BoardPanel extends JPanel {
     private int p2X = 650;
     private int p2Y = 650;
 
+    //read in the image file for the pictures 
     public BoardPanel() {
         super();
         try {
@@ -43,7 +45,7 @@ public class BoardPanel extends JPanel {
             e.printStackTrace();
         }
     }
-
+//draw the images on the panel
     public void paintComponent(Graphics g) {
         g.clearRect(0, 0, this.getWidth(), this.getHeight());
         if (img != null) {
@@ -57,7 +59,7 @@ public class BoardPanel extends JPanel {
         }
 
     }
-
+//set the initical location of the 2 players 
     public void setLocation(int playerNumber, int x, int y) {
         if (playerNumber == 1) {
             this.p1X = x;

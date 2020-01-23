@@ -5,17 +5,19 @@
  */
 package monopoly;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author patev6618
  */
 public class Board {
-
+    //create array of the Locations on the board
     private Location[] locations = new Location[40];
 
     public Board() {
        
-        // name, x, y, price, rent, isOwned, isMortgaged
+        // [] = subclass, name, x, y, price, rent, isOwned, isMortgaged
         locations[0] = new GoSqaure("Go", 650, 650);
         locations[1] = new Property("Mediteranean Avenue", 555, 650, 60, 2, false, false);
         locations[2] = new communityChest("Community Chest", 500, 650);
@@ -83,24 +85,25 @@ public class Board {
     public String getName(int position) {
         return locations[position].getName();
     }
+    
     /**
-     * 
-     * @param position
-     * @return 
+     * get the Property player is on
+     * @param position of the player
+     * @return the property
      */
     public Property getProperty(int position) {
         Property p = (Property) locations[position];
         if (locations[position] instanceof Property) {
             return p;
         }
-        return p;
+        return null;
     }
    
  
    /**
-    * 
-    * @param position
-    * @return 
+    * get the price of the specific property
+    * @param position of the player
+    * @return price of the property 
     */
     public int getPrice(int position) {
         Property p = (Property) locations[position];
@@ -113,8 +116,8 @@ public class Board {
         return p.getPrice();
     }
     /**
-    * 
-    * @param position
+    * get the rent of specific property
+    * @param position of the player
     * @return the rent of the property the player is on
     */
     public int getRent(int position) {
